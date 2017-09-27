@@ -1,24 +1,21 @@
-#require_relative 'func.rb'
+
 
 
 def updt_board(board,player,choice)
 	board = ["1","2","3","4","5","6","7","8","9"] 
 	board [choice-1] = player
-	p board
-	p player
-	p board
+
 	board
 end	
 ###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
 def player_sel(player)
 	if player == "x"
-		"o"
+		 player2 = "o"
 	else
-		player == "x"
+		 player2 == "x"
 	end		
+		p player2
 end	
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-
 ###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
 def val_spce(board,player,choice)
 	choice = choice-1
@@ -33,17 +30,33 @@ def val_spce(board,player,choice)
 	end  	  
 end	
 ###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-
-
-def Show_board(board)
-
-	puts " #{board[0]} | #{board[1]} | #{board[2]} "
-	puts "-------------"
-	puts " #{board[3]} | #{board[4]} | #{board[5]} "
-	puts "-------------"
-	puts " #{board[6]} | #{board[7]} | #{board[8]} "
+def win_combos(board)
+	 [[board[0], board[1], board[2]],
+    [board[0], board[4], board[8]],
+    [board[0], board[3], board[6]],
+    [board[3], board[4], board[5]],
+    [board[6], board[7], board[8]],
+    [board[6], board[4], board[2]],
+    [board[1], board[4], board[7]],
+    [board[2], board[5], board[8]]]
 end
-#show_board(board)
+###(((((((()))))(()))((()))((()))))###
+def board_win(board,player1,player2,winner)
+    winner = ""
+    combos(board).each do |combin|
+        if combin[0] == player1 && combin[1] == player1 && combin[2] == player1
+            winner = "Player 1 Won"
+        elsif combin[0] == player2 && combin[1] == player2 && combin[2] == player2
+            winner = "Player 2 Won"
+        end
+    end
+    p winner
+end
+###(((((((()))))(()))((()))((()))))###
+###(((((((()))))(()))((()))((()))))###
+###(((((((()))))(()))((()))((()))))###
+###(((((((()))))(()))((()))((()))))###
+###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
 ###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
 ###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
 ###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
