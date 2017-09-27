@@ -1,4 +1,4 @@
-require_relative 'tictac.rb'
+#require_relative 'tictac.rb'
 
 
 board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
