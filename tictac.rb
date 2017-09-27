@@ -8,11 +8,11 @@ def updt_board(board,player,choice)
 	board
 end	
 ###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-def val_spce(board,player,choice)
+def val_space(board,choice)
 	choice = choice-1
-	if choice > 9
+	if choice > 8
 		false
-	elsif choice > 1
+	elsif choice < 0
 	  false
 	elsif board[choice] == "x" || board[choice] == "o"
 		false
@@ -57,12 +57,12 @@ def win_combos(board)
     [board[2], board[4], board[6]]]
 end
 ###(((((((()))))(()))((()))((()))))###
-def board_win(board,player1,player2,winner)
+def board_win(board,player,player2,winner)
     winner = ""
-    combos(board).each do |combin|
-        if combin[0] == player1 && combin[1] == player1 && combin[2] == player1
+    combos(board).each do |comb|
+        if comb[0] == player1 && comb[1] == player1 && comb[2] == player1
             winner = "Player 1 Won"
-        elsif combin[0] == player2 && combin[1] == player2 && combin[2] == player2
+        elsif comb[0] == player2 && comb[1] == player2 && comb[2] == player2
             winner = "Player 2 Won"
         end
     end
