@@ -1,84 +1,23 @@
 
+require_relative "func.rb"
 
-
-def updt_board(board,player,choice)
-	board = ["1","2","3","4","5","6","7","8","9"] 
-	board [choice-1] = player
-
-	board
-end	
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-def val_space(board,choice)
-	choice = choice-1
-	if choice > 8
-		false
-	elsif choice < 0
-	  false
-	elsif board[choice] == "x" || board[choice] == "o"
-		false
-	else 
-		true	
-	end  	  
-end	
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-def player_sel(player)
-	if player == "x"
-		 player2 = "o"
-	else
-		 player2 == "x"
-	end		
-		p player2
-end	
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-def f_board(board)
-    if board.include?("1") ||
-       board.include?("2") ||
-       board.include?("3") ||
-       board.include?("4") ||
-       board.include?("5") ||
-       board.include?("6") ||
-       board.include?("7") ||
-       board.include?("8") ||
-       board.include?("9") 
-        false
-    else
-        true
-    end
-end    
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-def win_combos(board)
-	 [[board[0], board[1], board[2]],
-    [board[3], board[4], board[5]],
-    [board[6], board[7], board[8]],
-    [board[0], board[3], board[6]],
-    [board[1], board[4], board[7]],
-    [board[2], board[5], board[8]],
-    [board[0], board[4], board[8]],
-    [board[2], board[4], board[6]]]
-end
-###(((((((()))))(()))((()))((()))))###
-def board_win(board,player,player2,winner)
-    winner = ""
-    combos(board).each do |comb|
-        if comb[0] == player1 && comb[1] == player1 && comb[2] == player1
-            winner = "Player 1 Won"
-        elsif comb[0] == player2 && comb[1] == player2 && comb[2] == player2
-            winner = "Player 2 Won"
-        end
-    end
-    p winner
-end
-###(((((((()))))(()))((()))((()))))###
-###(((((((()))))(()))((()))((()))))###
-###(((((((()))))(()))((()))((()))))###
-###(((((((()))))(()))((()))((()))))###
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-###((((((((((((((((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))))))))###
-
+def run
+  player = "X"
+  game = "start"
+  board = ["1","2","3","4","5","6","7","8","9"]
+    until game == "end" do
+	    p "#{board[0]}|#{board[1]}|#{board[2]}"
+	    p "---"
+	    p "#{board[3]}|#{board[4]}|#{board[5]}"
+	    p "-|-|-"
+	    p "#{board[6]}|#{board[7]}|#{board[8]}"
+	    p "Pick a spot, 1-9."
+	    
+	    choice = gets.chomp.to_i
+	        if  val_space(board,choice) == true
+	            board = player_sel(board,player,choice)
+	                if board_win(board,player) == true
+	                    p "Player #{player} is the winner"
+	                    game = "end"
+	                else
+	                	if djsdddsolvforxblablablav

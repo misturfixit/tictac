@@ -6,7 +6,7 @@ class Board
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 	def ud(choice,player)
-		@board[choice-1] = player
+			@board[choice-1] = player
 			
 	end	
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
