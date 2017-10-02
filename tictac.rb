@@ -1,6 +1,6 @@
 
 require_relative "func.rb"
-
+ 
 def rungame
   player = "X"
   game = "run"
@@ -19,14 +19,12 @@ def rungame
 	                if chikkndinner(board,player) == true
 	                    p "Player #{player} is the winner"
 	                    game = "done"
-	                else
-	                	if f_board(board) == true
+	                elsif f_board(board) == true
 											p "Kitty got this one"
 	                        game = "done"
-	                  else
-	                        player = player_sel(player)
-	                  end       
 	                end    
+	                        player = player_sel(player)
+	 
 	        else
 	            p "can't move there"
 	        end 
