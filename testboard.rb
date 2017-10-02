@@ -25,13 +25,46 @@ class Testboard < Minitest::Test
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 	def test_val_spot
-		player = "x"
+		#player = "x"
+		#choice = 7
+		board = Board.new
+		board.board = ["1","o","x","o","5","6","x","8","9"]
 		choice = 7
-		board = Board.new.ud(choice,player)
+		#board.val_spot(7,"x")
+		assert_equal(false, board.val_spot(choice))
+	end
+###(((((()))((()))((()))((()))((())))((())))((())((())))###
+	def test_valspot2
+		board = Board.new
+		board.board = ["1","o","3","x","5","6","x","8","9"]
+		choice = 5
+		assert_equal(true, board.val_spot(choice))
+	end	
+###(((((()))((()))((()))((()))((())))((())))((())((())))###
+	def test_f_board
+		board = Board.new
+		board.board = ["o","o","x","x","o","x","x","o","x"]
+		assert_equal(true, board.f_board)
+	end
+###(((((()))((()))((()))((()))((())))((())))((())((())))###
+	def test_f_board1
+		board = Board.new
+		board.board = ["o","2","x","x","o","x","x","o","x"]
+		assert_equal(false, board.f_board)
+	end
+###(((((()))((()))((()))((()))((())))((())))((())((())))###
+	def test_win
+		board = Board.new
+		board.board = ["o","o","o","x","o","x","x","o","x"]
 		player = "o"
-		choice = 7
-		#board.val_spot(7,7)
-		assert_equal(true, Board.new.val_spot(board,choice))
+		assert_equal(true, board.chikkndinner(board,player))
+	end
+###(((((()))((()))((()))((()))((())))((())))((())((())))###
+	def test_win1
+		board = Board.new
+		board.board = ["o","x","o","x","o","x","x","o","x"]
+		player = "o"
+		assert_equal(false, board.chikkndinner(board,player))
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
@@ -39,5 +72,5 @@ class Testboard < Minitest::Test
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
-
+###(((((()))((()))((()))((()))((())))((())))((())((())))###
 end

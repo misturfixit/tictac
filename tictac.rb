@@ -2,7 +2,7 @@
 require_relative "func.rb"
  
 def rungame
-  player = "X"
+  player = "x"
   game = "run"
   board = ["1","2","3","4","5","6","7","8","9"]
     until game == "done" do
@@ -23,11 +23,11 @@ def rungame
 											p "Kitty got this one"
 	                        game = "done"
 	                end    
-	                        player = player_sel(player)
 	 
 	        else
 	            p "can't move there"
 	        end 
+	            player = player_sel(player)
     end
 end 
 
