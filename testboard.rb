@@ -57,14 +57,14 @@ class Testboard < Minitest::Test
 		board = Board.new
 		board.board = ["o","o","o","x","o","x","x","o","x"]
 		player = "o"
-		assert_equal(true, board.chikkndinner(board,player))
+		assert_equal(true, board.winr(board,player))
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 	def test_win1
 		board = Board.new
 		board.board = ["o","x","o","x","o","x","x","o","x"]
 		player = "o"
-		assert_equal(false, board.chikkndinner(board,player))
+		assert_equal(false, board.winr(board,player))
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###

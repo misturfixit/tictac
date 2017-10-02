@@ -46,7 +46,7 @@ end
     [@board[2],@board[4],@board[6]]]
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
-	def chikkndinner(board,player)
+	def winr(board,player)
     win = []
     win_combos(board).each do |comb|
         if comb[0] == "x" && comb[1] == "x" && comb[2] == "x"
