@@ -49,37 +49,49 @@ end
 		assert_equal("o",player_sel(player))
 	end	
 ############################################################################################
+	def test_player_sel
+		player = "o"
+		assert_equal("x",player_sel(player))
+	end	
+############################################################################################
 	def test_f_board
 		board = ["x","o","x","o","x","o","x","o","x"]
-		player = "x"
-		choice = 7
 		assert_equal(true, f_board(board))
 	end
 ############################################################################################
 	def test_f_board2
 		board = ["x","o","x","o","x","o","7","o","9"]
-    player = "x"
-    choice = 7
     assert_equal(false, f_board(board))	
 	end	
 ############################################################################################
 	def test_f_board3
-		board = ["x","o","x","o","x","o","x","o","9"]
-		player = "x"
-		choice = 9 
-		assert_equal(false, f_board(board))
+		board = ["x","o","x","o","x","o","x","o","x"]
+		assert_equal(true, f_board(board))
 	end 
 ############################################################################################
 	def test_win
 		board = ["x","x","x","o","x","o","7","8","o"]
-		player = "x"
-		choice = 9 
-		assert_equal(false, f_board(board))
+		assert_equal(true, chikkndinner(board))
 	end 
 ############################################################################################
+	def test_win2
+		board = ["x","2","x","o","o","o","x","8","o"]
+		assert_equal(true, chikkndinner(board))
+	end	
 ############################################################################################
+	def test_anudderwin
+		board = ["x","2","x",
+						 "o","x","o",
+						 "x","8","o"]
+		assert_equal(true, chikkndinner(board))
+	end	
 ############################################################################################
-############################################################################################
+	def test_onemo_win
+		board = ["x","2","o",
+						 "o","o","5",
+						 "o","8","o"]
+		assert_equal(true, chikkndinner(board))
+	end	
 ############################################################################################
 
 end

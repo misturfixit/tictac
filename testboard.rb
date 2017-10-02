@@ -24,6 +24,15 @@ class Testboard < Minitest::Test
 		assert_equal(["1","o","x","4","5","6","x","8","9"],board.board)
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
+	def test_val_spot
+		player = "x"
+		choice = 7
+		board = Board.new.ud(choice,player)
+		player = "o"
+		choice = 7
+		#board.val_spot(7,7)
+		assert_equal(true, Board.new.val_spot(board,choice))
+	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###

@@ -1,23 +1,22 @@
 ###((((((((((((((((((((((((((()))((())))))))))))))))))))))))))))))))###
 
 def updt_board(board,player,choice)
-  board = ["1","2","3","4","5","6","7","8","9"] 
+#  board = ["1","2","3","4","5","6","7","8","9"] 
   board [choice-1] = player
 
   board
 end 
 ###((((((((((((((((((((((((((()))((())))))))))))))))))))))))))))))))###
-
-###((((((((((((((((((((((((((()))((())))))))))))))))))))))))))))))))###
-
 def player_sel(player)
   if player == "x"
-     player2 = "o"
-  else
-     player2 == "x"
+     player = "o"
+  elsif player == "o"
+     player = "x"
   end   
-  player2
+  player
 end 
+###((((((((((((((((((((((((((()))((())))))))))))))))))))))))))))))))###
+
 ###(((((((((((((((((((((((((()))((()))))))))))))))))))))))))))))))))###
 def val_space(board,choice)
   choice = choice-1
@@ -57,18 +56,18 @@ def win_combos(board)
     [board[2],board[4],board[6]]]
 end
 ###(((((((()))))(()))((()))((((((())))((()))()))((()(()((()))))(())))))###
-def chikkndinner(board,player,player2,winner)
-    winner = []
+def chikkndinner(board,player)
+    win = []
     win_combos(board).each do |comb|
         if comb[0] == "x" && comb[1] == "x" && comb[2] == "x"
-            winner = true
+            win << true
         elsif comb[0] == "o" && comb[1] == "o" && comb[2] == "o"
-            winner = true
+            win << true
         else
-            winner << false    
+            win << false    
         end
     end
-    p chikkdinner.include(true)
+     win.include?(true)
 end
 ###(((((((()))))(()))((()))((()))))###
 ###(((((((()))))(()))((()))((()))))###
