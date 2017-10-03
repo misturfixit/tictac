@@ -13,21 +13,23 @@ def rungame
 	    p "#{board[6]}||#{board[7]}||#{board[8]}"
 	    p "Pick a spot, 1 thru 9."
 	    
-	    choice = gets.chomp.to_i
-	        if  val_space(board,choice) == true
-	            board = updt_board(board,player,choice)
-	                if chikkndinner(board,player) == true
-	                    p "Player #{player} is the winner"
-	                    game = "done"
-	                elsif f_board(board) == true
-											p "Kitty got this one"
-	                        game = "done"
-	                end    
-	 
-	        else
-	            p "can't move there"
-	        end 
-	            player = player_sel(player)
+    choice = gets.chomp.to_i
+      if  val_space(board,choice) == true
+        board = updt_board(board,player,choice)
+        if chikkndinner(board,player) == true
+          p "Player #{player} is the winner"
+              game = "done"
+        elsif f_board(board) == true
+          p "Kitty got this one"
+              game = "done"
+        end    
+
+      elsif val_space(board,choice) == false        
+          p "can't move there"
+      else    
+          player = player_sel(player)
+      end 
+      
     end
 end 
 

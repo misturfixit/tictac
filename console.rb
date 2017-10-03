@@ -3,8 +3,8 @@ require_relative "board.rb"
 class Console
 
   
-    attr_accessor :board
-    attr_reader :player
+      attr_accessor :board
+      attr_reader :player
     
     def rungame 
 	  @player = "x"
@@ -19,21 +19,21 @@ class Console
 		    p "Pick a spot, 1 thru 9."
 		    
 		    choice = gets.chomp.to_i
-		        if  val_space(board,choice) == true
-		            board.board.ud(player,choice)
-		                if win(board,player) == true
-		                    p "Player #{player} is the winner"
-		                    game = "done"
-		                elsif f_board(board) == true
-												p "Kitty got this one"
-		                        game = "done"
-		                end    
-		 
-		        else
-		            p "Can't move there"
-		        end 
-		            @player = player_sel(player)
+          if  val_spot.board(board,choice) == true
+            board.board.ud(player,choice)
+              if win(board,player) == true
+                p "Player #{player} is the winner"
+                  game = "done"
+              elsif f_board(board) == true
+                p "Kitty got this one"
+                  game = "done"
+              end    
+  
+          elsif board.val_spot(board,choice) == false
+              p "Can't move there"
+          else    
+              @player = player_sel(player)
+          end 
 	    end
     end     
 end
-rungame

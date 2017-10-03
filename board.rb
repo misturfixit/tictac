@@ -10,30 +10,30 @@ class Board
 		@board					
 	end	
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
-	def val_spot(choice)
+	def val_spot(board,choice)
   choice = choice-1
-  if choice > 8
-    false
-  elsif choice < 0
-    false
-  elsif @board[choice] == "x" || @board[choice] == "o"
-    false
-  else 
-    true  
-  end     
-end 
+    if choice > 8
+      false
+    elsif choice < 0
+      false
+    elsif @board[choice] == "x" || @board[choice] == "o"
+      false
+    else 
+      true  
+    end     
+  end 
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 	def f_board()
-  if @board.include?("1")||@board.include?("2")||
-     @board.include?("3")||@board.include?("4")||
-     @board.include?("5")||@board.include?("6")||
-     @board.include?("7")||@board.include?("8")||
-     @board.include?("9") 
+    if  @board.include?("1")||@board.include?("2")||
+        @board.include?("3")||@board.include?("4")||
+        @board.include?("5")||@board.include?("6")||
+        @board.include?("7")||@board.include?("8")||
+        @board.include?("9") 
       false
-  else
+    else
       true
-  end
-end    
+    end
+  end    
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 	def win_combos(board)
    [[@board[0],@board[1],@board[2]],
@@ -49,17 +49,17 @@ end
 	def winr(board,player)
     win = []
     win_combos(board).each do |comb|
-        if comb[0] == "x" && comb[1] == "x" && comb[2] == "x"
-            win << true
-        elsif comb[0] == "o" && comb[1] == "o" && comb[2] == "o"
-            win << true
-        else
-            win << false    
-        end
+      if comb[0] == "x" && comb[1] == "x" && comb[2] == "x"
+        win << true
+      elsif comb[0] == "o" && comb[1] == "o" && comb[2] == "o"
+        win << true
+      else
+        win << false    
+      end
     end
      win.include?(true)
-end
-###(((((()))((()))((()))((()))((())))((())))((())((())))###
-###(((((()))((()))((()))((()))((())))((())))((())((())))###
+  end
 
 end	
+###(((((()))((()))((()))((()))((())))((())))((())((())))###
+###(((((()))((()))((()))((()))((())))((())))((())((())))###
