@@ -22,12 +22,12 @@ def rungame
         elsif f_board(board) == true
           p "Kitty got this one"
               game = "done"
+        else    
+            player = player_sel(player)
         end    
 
-      elsif val_space(board,choice) == false        
+      else val_space(board,choice) == false        
           p "can't move there"
-      else    
-          player = player_sel(player)
       end 
       
     end
