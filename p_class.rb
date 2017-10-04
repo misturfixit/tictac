@@ -1,9 +1,9 @@
 class Playerseq
 
-	attr_reader :player 
+	attr_reader :marker 
 	###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 	def initialize(marker)
-		@player = marker
+		@marker = marker
 	end
 	###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 	def move(board)	
