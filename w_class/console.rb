@@ -6,29 +6,44 @@ class Console
   
   attr_accessor :board, :player1, :player2, :current_player
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-def  initialize(player1,player2) 
-  @player1 = player1
-  @player2 = player2
-  @board = Board.new 
-  @current_player = player1
-end  
+  def  initialize(player1,player2) 
+    @player1 = player1
+    @player2 = player2
+    @board = Board.new 
+    @current_player = player1
+  end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-def plrytype()
-    p "       How Many Hoomans?:..1,2 or 0  "
-  hooms = gets.chomp
-  diffc = gets.chomp
+  def plrytype()
+p "   How Many Hoomans?:..1, 2 or 0  "
+hooms = gets.chomp
     if hooms == 1  
       @player1 =  Playerhuman.new("x")
+p  "  Choose Difficulty Level::"
+p  "  1=(easy), 2=(Hard) or 3=(Garry Kasparov)"
+pl2ai = gets.chomp
+      if pl2ai == 1
+        @player2 = Playerseq.new("o")  
+      elsif pl2ai == 2
+        @player2 = Playerrand.new("o")
+      else pl2ai == 3 
+        @player2 = Playerunbtbl.new("o") 
+      end  
     elsif hooms == 2
-      @player1 == Playerhuman.new("x") && @player2 == Playerhuman.new("o")
-    else
-    p "Choose Difficulty Level::..
-        1(easy), 2(Hard) or 3(Garry Kasparov)"
-          if  diffc ==  1
-            
-    
-      end    
-end  
+        @player1 == Playerhuman.new("x") && @player2 == Playerhuman.new("o")
+    else hooms == 0
+p "   Which AIs Would you like to see beat up one another?"
+p "   ran_v_ran, seq_v_seq or ran_v_seq"
+p "   Be sure your entry is exactly as it appears"
+ai_v_ai = gets.chomp
+      if ai_v_ai == ran_v_ran
+        @player1 = Playerrand.new("x") && @player2 == Playerrand.new("o") 
+      elsif ai_v_ai == rand_v_seq  
+        @player1 = Playerrand.new("x") && @player2 == Playerseq.new("o") 
+      else ai_v_ai == seq_v_seq   
+        @player1 = Playerseq.new("x") && @player2 == Playerseq.new("o")
+      end
+    end   
+  end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
   def print_board()
     p "                                                             "
