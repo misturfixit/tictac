@@ -29,4 +29,4 @@ puts     "  \\____/             |__|                    \\____//\\______|_______
         # move = game.get_move
         # game.checkval(move)
         # game.print_board
-      end
+    end
