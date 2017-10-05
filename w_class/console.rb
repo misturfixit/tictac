@@ -13,7 +13,7 @@ class Console
     @current_player = player1
   end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-  def plrytype()
+  def plyrtype()
 p "   How Many Hoomans?:..1, 2 or 0  "
 hooms = gets.chomp
     if hooms == 1  
@@ -21,25 +21,25 @@ hooms = gets.chomp
 p  "  Choose Difficulty Level::"
 p  "  1=(easy), 2=(Hard) or 3=(Garry Kasparov)"
 pl2ai = gets.chomp
-      if pl2ai == 1
+      if pl2ai == 0
         @player2 = Playerseq.new("o")  
-      elsif pl2ai == 2
+      elsif pl2ai == 1
         @player2 = Playerrand.new("o")
-      else pl2ai == 3 
+      else pl2ai == 2 
         @player2 = Playerunbtbl.new("o") 
       end  
     elsif hooms == 2
         @player1 == Playerhuman.new("x") && @player2 == Playerhuman.new("o")
     else hooms == 0
 p "   Which AIs Would you like to see beat up one another?"
-p "   ran_v_ran, seq_v_seq or ran_v_seq"
-p "   Be sure your entry is exactly as it appears"
+p "   1 = (ran_v_ran), 2 = (seq_v_seq) or 3 = (ran_v_seq)"
+p "   "
 ai_v_ai = gets.chomp
-      if ai_v_ai == ran_v_ran
+      if ai_v_ai == 0
         @player1 = Playerrand.new("x") && @player2 == Playerrand.new("o") 
-      elsif ai_v_ai == rand_v_seq  
+      elsif ai_v_ai == 1  
         @player1 = Playerrand.new("x") && @player2 == Playerseq.new("o") 
-      else ai_v_ai == seq_v_seq   
+      else ai_v_ai == 2   
         @player1 = Playerseq.new("x") && @player2 == Playerseq.new("o")
       end
     end   
