@@ -16,6 +16,6 @@ class Playerrand
 		  	ind << index+1
 		 end	
 	  end
-ind.sample
+ind.sample    
 	end	
 end 

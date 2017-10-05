@@ -19,10 +19,7 @@ class Playerseq
 		# p "#{index}.....indexxxxxxx"	
 	  end
 ind.first
-	end	
-
-
-	
+	end
 end
 
 

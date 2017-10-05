@@ -19,7 +19,7 @@ puts     "  \\____/             |__|                    \\____//\\______|_______
         
       elsif game.board.f_board == true
         p
-        p "KiTty Got THis One"  
+        p "KiTty DoNe Got THis One"  
         game = "done"
        
       else
