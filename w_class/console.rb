@@ -13,34 +13,40 @@ class Console
     @current_player = player1
   end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-  def plyrtype()
-p "   How Many Hoomans?:..1, 2 or 0  "
-hooms = gets.chomp
-    if hooms == 1  
+  def plyrtype(player1,player2)
+p "   How Many Hoomans?:..1, 2 or none  "
+hooms = gets.chomp.to_s
+    if hooms == "1"  
       @player1 =  Playerhuman.new("x")
 p  "  Choose Difficulty Level::"
 p  "  1=(easy), 2=(Hard) or 3=(Garry Kasparov)"
-pl2ai = gets.chomp
-      if pl2ai == 0
+pl2ai = gets.chomp.to_s
+      if pl2ai == "1"
         @player2 = Playerseq.new("o")  
-      elsif pl2ai == 1
+      elsif pl2ai == "2"
         @player2 = Playerrand.new("o")
-      else pl2ai == 2 
+      elsif pl2ai == "3" 
         @player2 = Playerunbtbl.new("o") 
+      else
+p       "Does Not Compute" 
       end  
-    elsif hooms == 2
+    elsif hooms == "2"
         @player1 == Playerhuman.new("x") && @player2 == Playerhuman.new("o")
-    else hooms == 0
+    elsif hooms == "none"
 p "   Which AIs Would you like to see beat up one another?"
 p "   1 = (ran_v_ran), 2 = (seq_v_seq) or 3 = (ran_v_seq)"
 p "   "
-ai_v_ai = gets.chomp
-      if ai_v_ai == 0
+    else
+p     "Does Not Compute"        
+ai_v_ai = gets.chomp.to_s
+      if ai_v_ai == "1"
         @player1 = Playerrand.new("x") && @player2 == Playerrand.new("o") 
-      elsif ai_v_ai == 1  
+      elsif ai_v_ai == "2"  
         @player1 = Playerrand.new("x") && @player2 == Playerseq.new("o") 
-      else ai_v_ai == 2   
+      elsif ai_v_ai == "3"   
         @player1 = Playerseq.new("x") && @player2 == Playerseq.new("o")
+      else
+p     "Does Not Compute"         
       end
     end   
   end  

@@ -2,16 +2,16 @@ require_relative "console.rb"
 
 game = Console.new(@player1,@player2)
 #  game = run
-puts    "_______________        ___                 ______________"
-puts    "\\__     __/ |__|\______/  |________________\\___      ___/ "
+puts    "_______________       ___                 ______________"
+puts    "\\__     __/|__|_\_____/  |_________________\\___      ___/ "
 puts     "  |    |   |  |/  __/     __/__    //   __/  |    |  ____________"    
-puts     "  |    |   |  \\  \\__    __/  __   //   \\_    |    |// ___  |  _ _\\"
+puts     "  |    |   |  \\  \\__    __/  __   //   \\_    |    |// ___   | | \\"
 puts     "  |    |   |__|\\____/|  | (_______/\\_____/   |    | | |__| |____/  "
 puts     "  \\____/             |__|                    \\____//\\______|_______/"
 
 
 
-    game.plyrtype
+    game.plyrtype(@player1,@player2)
     until game == "done" do
       move = game.get_move
       game.checkval(move)
