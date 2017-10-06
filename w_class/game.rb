@@ -4,14 +4,14 @@ game = Console.new(@player1,@player2)
 #  game = run
 puts    "_______________       ___                 ______________"
 puts    "\\__     __/|__|_\_____/  |_________________\\___      ___/ "
-puts     "  |    |   |  |/  __/     __/__    //   __/  |    |  ____________"    
-puts     "  |    |   |  \\  \\__    __/  __   //   \\_    |    |// ___   | | \\"
+puts     "  |    |   |  |/  __/   ____/__    //   __/  |    |  ____________"    
+puts     "  |    |   |  \\  \\__    __/  __   //   \\_    |    |// ___  |__\\ \\"
 puts     "  |    |   |__|\\____/|  | (_______/\\_____/   |    | | |__| |____/  "
 puts     "  \\____/             |__|                    \\____//\\______|_______/"
 
 
 
-    game.plyrtype(@player1,@player2)
+   current_player = game.playertype()
     until game == "done" do
       move = game.get_move
       game.checkval(move)
@@ -29,7 +29,7 @@ puts     "  \\____/             |__|                    \\____//\\______|_______
       else
         game.player_sel
       end  
-         game.print_board
+        # game.print_board
         # move = game.get_move
         # game.checkval(move)
         # game.print_board

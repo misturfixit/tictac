@@ -13,11 +13,11 @@ class Console
     @current_player = player1
   end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-  def plyrtype(player1,player2)
-p "   How Many Hoomans?:..1, 2 or none  "
+  def playertype()
+p "   How Many Hoomans?:..1, 2 or 0  "
 hooms = gets.chomp.to_s
     if hooms == "1"  
-      @player1 =  Playerhuman.new("x")
+      @current_player = Playerhuman.new("x")
 p  "  Choose Difficulty Level::"
 p  "  1=(easy), 2=(Hard) or 3=(Garry Kasparov)"
 pl2ai = gets.chomp.to_s
@@ -31,22 +31,22 @@ pl2ai = gets.chomp.to_s
 p       "Does Not Compute" 
       end  
     elsif hooms == "2"
-        @player1 == Playerhuman.new("x") && @player2 == Playerhuman.new("o")
-    elsif hooms == "none"
+        @current_player == Playerhuman.new("x") && @player2 == Playerhuman.new("o")
+    elsif hooms == "0"
 p "   Which AIs Would you like to see beat up one another?"
-p "   1 = (ran_v_ran), 2 = (seq_v_seq) or 3 = (ran_v_seq)"
+p "   1=(ran_v_ran), 2=(ran_v_seq) or 3=(seq_v_seq) "
 p "   "
     else
-p     "Does Not Compute"        
+p       "Does Not Compute"        
 ai_v_ai = gets.chomp.to_s
       if ai_v_ai == "1"
         @player1 = Playerrand.new("x") && @player2 == Playerrand.new("o") 
       elsif ai_v_ai == "2"  
-        @player1 = Playerrand.new("x") && @player2 == Playerseq.new("o") 
-      elsif ai_v_ai == "3"   
         @player1 = Playerseq.new("x") && @player2 == Playerseq.new("o")
+      elsif ai_v_ai == "3"   
+        @player1 = Playerrand.new("x") && @player2 == Playerseq.new("o") 
       else
-p     "Does Not Compute"         
+p       "Does Not Compute"         
       end
     end   
   end  
@@ -80,10 +80,10 @@ p     "Does Not Compute"
   end 
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
   def player_sel#(player1,player2)
-    if current_player == player1
-      @current_player = player2
-    else current_player == player2
-      @current_player = player1
+    if current_player == @player1
+      @current_player = @player2
+    else current_player == @player2
+      @current_player = @player1
     end   
     current_player
   end 
