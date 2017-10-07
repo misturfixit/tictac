@@ -9,10 +9,11 @@ puts     "  |    |   |  \\  \\__    __/  __   //   \\_    |    |// ___  |__\\ \\
 puts     "  |    |   |__|\\____/|  | (_______/\\_____/   |    | | |__| |____/  "
 puts     "  \\____/             |__|                    \\____//\\______|_______/"
 
+###(((((((()))))))((((((()))))))((((((()))))))((((((())))))))###
 
-
-   current_player = game.playertype()
+   game.playertype
     until game == "done" do
+      game.print_board
       move = game.get_move
       game.checkval(move)
       game.print_board

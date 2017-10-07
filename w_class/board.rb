@@ -48,7 +48,7 @@ class Board
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 	def winr(board,player)
     win = []
-    win_combos(board).each do |comb|
+    win_combos(@board).each do |comb|
       if comb[0] == "x" && comb[1] == "x" && comb[2] == "x"
         win << true
       elsif comb[0] == "o" && comb[1] == "o" && comb[2] == "o"

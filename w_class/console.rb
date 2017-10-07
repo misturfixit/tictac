@@ -5,24 +5,24 @@ require_relative "board.rb"
 class Console
   
   attr_accessor :board, :player1, :player2, :current_player
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
   def  initialize(player1,player2) 
     @player1 = player1
     @player2 = player2
     @board = Board.new 
-    @current_player = player1
+    @current_player = player1,player2
   end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-  def playertype()
+  def playertype
 p "   How Many Hoomans?:..1, 2 or 0  "
 hooms = gets.chomp.to_s
     if hooms == "1"  
       @current_player = Playerhuman.new("x")
 p  "  Choose Difficulty Level::"
-p  "  1=(easy), 2=(Hard) or 3=(Garry Kasparov)"
+p  "  1=(easy), 2=(DeePBluE) or 3=(Garry Kasparov)"
 pl2ai = gets.chomp.to_s
       if pl2ai == "1"
-        @player2 = Playerseq.new("o")  
+        @player2 = Playerseq..new  
       elsif pl2ai == "2"
         @player2 = Playerrand.new("o")
       elsif pl2ai == "3" 

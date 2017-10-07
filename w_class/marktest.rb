@@ -1,5 +1,6 @@
 require "minitest/autorun"
-require_relative "p_class.rb"
+require_relative "pc_seq.rb"
+require_relative "pc_ran.rb"
 
 class Test_marker < Minitest::Test
 
@@ -34,6 +35,10 @@ class Test_marker < Minitest::Test
 		assert_equal(9, player.move(["x","o","x","o","x","o","x","o","9"]))
 	end
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  def test_moveran
+    player = Playerrand.new
+
+  end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
