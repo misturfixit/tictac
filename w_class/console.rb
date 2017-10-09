@@ -26,7 +26,7 @@ pl2ai = gets.chomp.to_s
       elsif pl2ai == "2"
         @player2 = Playerrand.new("o")
       elsif pl2ai == "3" 
-        @player2 = Playerunbtbl.new("o") 
+        @player2 = Playerunbeets.new("o") 
       else
 p       "Does Not Compute" 
       end  

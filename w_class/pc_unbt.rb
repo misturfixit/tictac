@@ -1,4 +1,4 @@
-class Playerunbtbl
+class Playerunbeets
   
   attr_reader :marker 
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
@@ -6,6 +6,30 @@ class Playerunbtbl
 		@marker = marker
 	end
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  def f_move(board)	
+    pick = []
+    if board.include?("o") || board.include?("x") == true   
+   		board.each_with_index do |val,index|
+        if	val != "#{index+1}"
+          if index%2 == 1
+            if index == 1 || 3
+              pick = 0
+            elsif index == 7 || 5
+              pick = 8
+            end     
+          elsif index%2 == 0 && index != 4
+            pick = 4   
+          else   
+            pick = 6 
+          end   
+        end
+      end  
+    else
+      pick = 4     
+    end
+    f_move = "#{pick+1}"
+    f_move
+  end	
 
 
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
@@ -21,10 +45,6 @@ end
 
 
 
-# 	def move(board)	
-# 		ind = []
-# 		board.each_with_index do |val,index|
-# 		  if	val == "x" 
 # 		   elsif val == "o"
 		  
 # 		  else 
@@ -32,4 +52,3 @@ end
 # 		 end	
 # 	  end
 # ind.sample    
-# 	end	
