@@ -36,19 +36,19 @@ class Test_marker < Minitest::Test
 		assert_equal(9, player.move(["x","o","x","o","x","o","x","o","9"]))
 	end
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-  # def test_moveran1
-  #   board = ["1","2","3","4","5","6","7","8","9"]
-  #   player = Playerrand.new("x")
-  #   move = player.move(board)
-  #   assert_equal(true, move.include?("x"))
-  # end  
+  def test_moveran1
+    board = ["1","2","3","4","5","6","7","8","9"]
+    player = Playerrand.new("x")
+    assert_equal(true, player.move(board).include?(marker))
+  end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
   def test_f_move_ub
-    board = ["1","o","3","4","5","6","7","8","9"]
-    assert_equal("1", f_move(board))
+    board = ["1","x","3","4","5","6","7","8","9"]
+    player = Playerunbeets.new("o")
+    assert_equal("1", player.f_move(board))
   end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
