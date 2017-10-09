@@ -5,14 +5,14 @@ require_relative "board.rb"
 class Console
   
   attr_accessor :board, :player1, :player2, :current_player
-  ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  ###(((((()))((((((()))))((((((INIT))))))(((((()))(((((())))))))))###
   def  initialize(player1,player2) 
     @player1 = player1
     @player2 = player2
     @board = Board.new 
     @current_player = player1,player2
   end  
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((GameSetup))))))(((((()))(((((())))))))))###
   def playertype
 p "   How Many Hoomans?:..1, 2 or 0  "
 hooms = gets.chomp.to_s
@@ -50,7 +50,7 @@ p       "Does Not Compute"
       end
     end   
   end  
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((Board))))))(((((()))(((((())))))))))###
   def print_board()
     p "                                                             "
     p "                                                             "
@@ -65,11 +65,11 @@ p       "Does Not Compute"
     p "                                                             "
     p "                                                             "
   end
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((Move))))))(((((()))(((((())))))))))###
   def get_move
     current_player.move(board.board)
   end
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###  
+###(((((()))((((((()))))((((((Validity))))))(((((()))(((((())))))))))###  
   def checkval(choice)
     if  board.val_spot(board.board,choice) == true
       board.ud(current_player.marker,choice)
@@ -78,7 +78,7 @@ p       "Does Not Compute"
       get_move
     end     
   end 
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((Player Cycle))))))(((((()))(((((())))))))))###
   def player_sel#(player1,player2)
     if current_player == @player1
       @current_player = @player2
