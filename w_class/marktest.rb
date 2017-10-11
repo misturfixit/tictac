@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require_relative "pc_seq.rb"
 require_relative "pc_ran.rb"
-require_relative "pc_unbtbl.rb"
+require_relative "pc_unbeets.rb"
 
 class Test_marker < Minitest::Test
 
@@ -54,36 +54,37 @@ class Test_marker < Minitest::Test
 ###$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$###
 
 ###(((((()))((((((()))))((((((UnBTBLFirstMove))))))(((((()))(((((())))))))))###
-def test_f_move_ub1
-  board = ["1","2","3","4","5","6","7","8","9"]
-  player = Playerunbeets.new("o")
-  assert_equal("5", player.f_move(board))
-end  
+  def test_f_move_ub1
+    board = ["1","2","3","4","5","6","7","8","9"]
+    player = Playerunbeets.new("o")
+    assert_equal("5", player.f_move(board))
+  end  
 ###(((((()))((((((()))))((((((UbFm))))))(((((()))(((((())))))))))###
-def test_f_move_ub2
-  board = ["1","x","3","4","5","6","7","8","9"]
-  player = Playerunbeets.new("o")
-  assert_equal("1", player.f_move(board))
-end  
+  def test_f_move_ub2
+    board = ["1","x","3","4","5","6","7","8","9"]
+    player = Playerunbeets.new("o")
+    assert_equal("1", player.f_move(board))
+  end  
 ###(((((()))((((((()))))((((((UbFm))))))(((((()))(((((())))))))))###
-def test_f_move_ub3
-  board = ["x","2","3","4","5","6","7","8","9"]
-  player = Playerunbeets.new("o")
-  assert_equal("5", player.f_move(board))
-end  
+  def test_f_move_ub3
+    board = ["x","2","3","4","5","6","7","8","9"]
+    player = Playerunbeets.new("o")
+    assert_equal("5", player.f_move(board))
+  end  
 ###(((((()))((((((()))))((((((UbFm))))))(((((()))(((((())))))))))###
-def test_f_move_ub4
-  board = ["1","2","3","4","x","6","7","8","9"]
-  player = Playerunbeets.new("o")
-  assert_equal("7", player.f_move(board))
-end
+  def test_f_move_ub4
+    board = ["1","2","3","4","x","6","7","8","9"]
+    player = Playerunbeets.new("o")
+    assert_equal("7", player.f_move(board))
+  end
 ###(((((()))((((((()))))((((((UbFm))))))(((((()))(((((())))))))))###
-def test_f_move_ub5
-  board = ["1","2","3","x","5","6","7","8","9"]
-  player = Playerunbeets.new("o")
-  assert_equal("1", player.f_move(board))
-end
+  def test_f_move_ub5
+    board = ["1","2","3","x","5","6","7","8","9"]
+    player = Playerunbeets.new("o")
+    assert_equal("1", player.f_move(board))
+  end
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###

@@ -6,18 +6,19 @@ class Console
   
   attr_accessor :board, :player1, :player2, :current_player
   ###(((((()))((((((()))))((((((INIT))))))(((((()))(((((())))))))))###
-  def  initialize(player1,player2) 
+  def  initialize() 
     @player1 = player1
     @player2 = player2
     @board = Board.new 
-    @current_player = player1,player2
+    
+    #@current_player = player1,player2
   end  
 ###(((((()))((((((()))))((((((GameSetup))))))(((((()))(((((())))))))))###
   def playertype
 p "   How Many Hoomans?:..1, 2 or 0  "
 hooms = gets.chomp.to_s
     if hooms == "1"  
-      @current_player = Playerhuman.new("x")
+      @player1 = Playerhuman.new("x")
 p  "  Choose Difficulty Level::"
 p  "  1=(easy), 2=(DeePBluE) or 3=(Garry Kasparov)"
 pl2ai = gets.chomp.to_s
@@ -31,7 +32,8 @@ pl2ai = gets.chomp.to_s
 p       "Does Not Compute" 
       end  
     elsif hooms == "2"
-        @current_player == Playerhuman.new("x") && @player2 == Playerhuman.new("o")
+        @player1 == Playerhuman.new("x") 
+        @player2 == Playerhuman.new("o")
     elsif hooms == "0"
 p "   Which AIs Would you like to see beat up one another?"
 p "   1=(ran_v_ran), 2=(ran_v_seq) or 3=(seq_v_seq) "
@@ -40,11 +42,14 @@ p "   "
 p       "Does Not Compute"        
 ai_v_ai = gets.chomp.to_s
       if ai_v_ai == "1"
-        @player1 = Playerrand.new("x") && @player2 == Playerrand.new("o") 
+        @player1 = Playerrand.new("x") 
+        @player2 == Playerrand.new("o") 
       elsif ai_v_ai == "2"  
-        @player1 = Playerseq.new("x") && @player2 == Playerseq.new("o")
+        @player1 = Playerseq.new("x") 
+        @player2 == Playerseq.new("o")
       elsif ai_v_ai == "3"   
-        @player1 = Playerrand.new("x") && @player2 == Playerseq.new("o") 
+        @player1 = Playerrand.new("x") 
+        @player2 == Playerseq.new("o") 
       else
 p       "Does Not Compute"         
       end

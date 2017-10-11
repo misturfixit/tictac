@@ -1,6 +1,6 @@
 require_relative "console.rb"
 
-game = Console.new(@player1,@player2)
+game = Console.new
 #  game = run
 puts    "_______________       ___                 ______________"
 puts    "\\__     __/|__|_\_____/  |_________________\\___      ___/ "
@@ -11,7 +11,7 @@ puts     "  \\____/             |__|                    \\____//\\______|_______
 
 ###(((((((()))))))((((((()))))))((((((()))))))((((((())))))))###
 
-   game.playertype
+   #game.playertype
     until game == "done" do
       game.print_board
       move = game.get_move
