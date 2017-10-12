@@ -1,17 +1,37 @@
 class Playerunbeets
   
-  attr_reader :marker 
+  attr_accessor :marker 
   ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 	def initialize(marker)
 		@marker = marker
 	end
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-
+  def win_move(board)
+    @board = board
+    player = player
+    choice = []
+      board.each_with_index do |op_spot,index|
+        #p op_spot
+        #p index 
+        if op_spot == "#{index + 1}"
+          @board.ud(player,op_spot)
+            if @board.winr == true
+              choice = op_spot
+            end
+          @board.ud("#{index + 1}", "#{index + 1}")     
+        end
+      end 
+        if choice == []
+          false
+        else
+          choice
+        end     
+  end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
   def f_move(board)	
     pick = []
     if board.include?("o") || board.include?("x") == true   
-   		board.each_with_index do |val,index|
+   	  board.each_with_index do |val,index|
         if	val != "#{index+1}"
           if index%2 == 1
             if index == 1 || index == 3
@@ -32,15 +52,12 @@ class Playerunbeets
     f_move = "#{pick+1}"
     f_move
   end	
-
-
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-
-
 end 
+
+###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 
 
 

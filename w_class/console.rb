@@ -1,21 +1,22 @@
 require_relative "pc_seq.rb"
 require_relative "pc_human.rb"
 require_relative "pc_ran.rb"
+require_relative "pc_unbeets.rb"
 require_relative "board.rb"
 class Console
   
-  attr_accessor :board, :player1, :player2, :current_player
+  attr_accessor :board, :player1, :player2, :marker
   ###(((((()))((((((()))))((((((INIT))))))(((((()))(((((())))))))))###
   def  initialize() 
+    @board = Board.new 
+    @marker = marker
     @player1 = player1
     @player2 = player2
-    @board = Board.new 
-    
-    #@current_player = player1,player2
+   # @current_player = player1
   end  
-###(((((()))((((((()))))((((((GameSetup))))))(((((()))(((((())))))))))###
-  def playertype
-      p "   How Many Hoomans?:..1, 2 or 0  "
+###((((((G)))(((((((A)))))((((((GameSetup))))))((((((M)))((((((E))))))))))###
+  def playertype()
+        p "   How Many Hoomans?:..1, 2 or 0  "
     hooms = gets.chomp.to_s
       if hooms == "1"  
         @player1 = Playerhuman.new("x")
@@ -36,7 +37,7 @@ class Console
         @player2 == Playerhuman.new("o")
       elsif hooms == "0"
         p "   Which AIs Would you like to see beat up one another?"
-        p "   1=(ran_v_ran), 2=(ran_v_seq) or 3=(seq_v_seq) "
+        p "   1=(ran_v_ran), 3=(seq_v_seq)or 3=(ran_v_seq)"
         p 
     ai_v_ai = gets.chomp.to_s
       if ai_v_ai == "1"
@@ -60,17 +61,17 @@ p       "Does Not Compute"
     p "       OK #{current_player.marker} it's your turn   "
     p "       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   "
     p "                                                             "
-    p "       #{board.board[0]}  |!| #{board.board[1]} |!| #{board.board[2]}  "
+    p "       #{@board.board[0]}  |!| #{@board.board[1]} |!| #{@board.board[2]}  "
     p "       ===|!|===|!|===   "
-    p "       #{board.board[3]}  |!| #{board.board[4]} |!| #{board.board[5]}  "
+    p "       #{@board.board[3]}  |!| #{@board.board[4]} |!| #{@board.board[5]}  "
     p "       ===|!|===|!|===   "
-    p "       #{board.board[6]}  |!| #{board.board[7]} |!| #{board.board[8]}  "
+    p "       #{@board.board[6]}  |!| #{@board.board[7]} |!| #{@board.board[8]}  "
     p "                                                             "
     p "                                                             "
   end
 ###(((((()))((((((()))))((((((Move))))))(((((()))(((((())))))))))###
-  def get_move
-    current_player.move(board.board)
+  def get_move()
+    @current_player.move(@board.board)
   end
 ###(((((()))((((((()))))((((((Validity))))))(((((()))(((((())))))))))###  
   def checkval(choice)
@@ -82,13 +83,13 @@ p       "Does Not Compute"
     end     
   end 
 ###(((((()))((((((()))))((((((Player Cycle))))))(((((()))(((((())))))))))###
-  def player_sel#(player1,player2)
+  def player_sel(player1,player2)
     if current_player == @player1
       @current_player = @player2
     else current_player == @player2
       @current_player = @player1
     end   
-    current_player
+    @current_player
   end 
   
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###

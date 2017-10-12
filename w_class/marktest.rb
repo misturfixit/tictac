@@ -2,6 +2,7 @@ require "minitest/autorun"
 require_relative "pc_seq.rb"
 require_relative "pc_ran.rb"
 require_relative "pc_unbeets.rb"
+require_relative "console.rb"
 
 class Test_marker < Minitest::Test
 
@@ -9,7 +10,8 @@ class Test_marker < Minitest::Test
 	def test_marker
 		player = Playerseq.new("x")
 		assert_equal("x", player.marker)
-	end 
+  end 
+####vvvvvvvvvvvvvvvvvvvvvvvvvvv*Seq Test*vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv##  
 ###(((((()))((((((()))))((((((SequentialMove))))))(((((()))(((((())))))))))###
 	def test_move
 		player = Playerseq.new("x")
@@ -35,13 +37,13 @@ class Test_marker < Minitest::Test
 		player = Playerseq.new("o")
 		assert_equal(9, player.move(["x","o","x","o","x","o","x","o","9"]))
 	end
-###(((((()))((((((()))))((((((RandomMove))))))(((((()))(((((())))))))))###
-
-###$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$###
+  ###^^^^^^^^^^^^^^^^^^^^^^^^^*End Seq Test*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^###
+  ###vvvvvvvvvvvvvvvvvvvvvvvvv*Ranmove Test*vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
+  ###(((((()))((((((()))))((((((RandomMove))))))(((((()))(((((())))))))))###
   def test_moveran1
     board = ["1","2","3","4","5","6","7","8","9"]
     player = Playerrand.new("x").move(board)
-    assert_equal(true, [0,1,2,3,4,5,6,7,8].include?(player))
+    assert_equal(true, [1,2,3,4,5,6,7,8,9].include?(player))
   end  
 ###(((((()))((((((()))))(((((("Ran"))))))(((((()))(((((())))))))))###
   def test_moveran2
@@ -49,11 +51,11 @@ class Test_marker < Minitest::Test
              "o","x","o",
              "o","x","9"]
     player = Playerrand.new("o").move(board)
-    assert_equal(true, [0,1,8].include?(player))
+    assert_equal(true, [1,2,9].include?(player))
   end  
-###$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$###
-
-###(((((()))((((((()))))((((((UnBTBLFirstMove))))))(((((()))(((((())))))))))###
+###^^^^^^^^^^^^^^^^^^^^^^^^^^^*END Ranmove Test*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^###  
+###vvvvvvvvvvvvvvvvvvvvvvvvvvvvUnbeat Testvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
+###(((((()))((((((()))))((((((UnBeat FirstMove))))))(((((()))(((((())))))))))###
   def test_f_move_ub1
     board = ["1","2","3","4","5","6","7","8","9"]
     player = Playerunbeets.new("o")
@@ -83,10 +85,30 @@ class Test_marker < Minitest::Test
     player = Playerunbeets.new("o")
     assert_equal("1", player.f_move(board))
   end
+###(((((()))((((((()))))((((((UbFm))))))(((((()))(((((())))))))))###
+  def test_f_move_ub6
+    board = ["1","2","3","4","o","6","7","8","9"]
+    player = Playerunbeets.new("o")
+    assert_equal("7", player.f_move(board))
+  end  
+###^^^^^^^^^^^^^^^^^^^^^^^^^End Fmove Test^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^###
+###(((((()))((((((()))))((((((Winmove))))))(((((()))(((((())))))))))###
+  # def test_win1
+  #   board = Board.new
+  #   player = Playerunbeets.new("o")
+  #   choices = choice
+  #   board.ud(player, choices)
+  #   assert_equal(false, player.win_move(board))
+  # end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  def test_winmove2
+    board = Board.new
+    player = Playerunbeets.new("o")
+    choices = 1,3
+    board.ud(player,choices)
+    assert_equal(2, player.win_move(board))
+  end  
 
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###

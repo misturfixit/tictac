@@ -1,6 +1,6 @@
 class Playerseq
 
-	attr_reader :marker 
+	attr_accessor :marker 
 	###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 	def initialize(marker)
 		@marker = marker
@@ -9,8 +9,8 @@ class Playerseq
 	def move(board)	
 		ind = []
 		board.each_with_index do |val,index|
-		  if	val == "x" 
-		   elsif val == "o"
+		  if val == "x" 
+		  elsif val == "o"
 		  
 		  else 
 		  	ind << index+1

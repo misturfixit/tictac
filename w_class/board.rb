@@ -6,7 +6,7 @@ class Board
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 	def ud(player,*choices)
-		@board[choice-1] = player
+		@board[choices.to_a -1] = marker
 		@board					
 	end	
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
@@ -46,9 +46,9 @@ class Board
     [@board[2],@board[4],@board[6]]]
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
-	def winr(board,player)
+	def winr(board)
     win = []
-    win_combos(@board).each do |comb|
+    win_combos(board).each do |comb|
       if comb[0] == "x" && comb[1] == "x" && comb[2] == "x"
         win << true
       elsif comb[0] == "o" && comb[1] == "o" && comb[2] == "o"

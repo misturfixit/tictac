@@ -1,5 +1,5 @@
 class Playerhuman
-  attr_reader :marker
+  attr_accessor :marker
   def initialize(marker)
     @marker = marker
   end
