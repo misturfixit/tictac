@@ -16,7 +16,7 @@ p
 p
 ###(((((((()))))))((((((()))))))((((((()))))))((((((())))))))###
 
-   #game.playertype
+   game.playertype
     until game == "done" do
       game.print_board
       move = game.get_move
@@ -24,7 +24,7 @@ p
       game.print_board
       if game.board.winr(game.board.board,game.current_player.marker) == true
         p
-        p "Player #{game.current_player.marker} Wins"
+        p "Player #{game.current_player.marker} Wins This One"
         game = "done"
         
       elsif game.board.f_board == true

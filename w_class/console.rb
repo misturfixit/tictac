@@ -9,7 +9,7 @@ class Console
   ###(((((()))((((((()))))((((((INIT))))))(((((()))(((((())))))))))###
   def  initialize() 
     @board = Board.new 
-    @marker = marker
+    # @marker = marker
     @player1 = player1
     @player2 = player2
    # @current_player = player1
@@ -33,8 +33,8 @@ class Console
         p       "Does Not Compute" 
         end  
       elsif hooms == "2"
-        @player1 == Playerhuman.new("x") 
-        @player2 == Playerhuman.new("o")
+        @player1 = Playerhuman.new("x") 
+        @player2 = Playerhuman.new("o")
       elsif hooms == "0"
         p "   Which AIs Would you like to see beat up one another?"
         p "   1=(ran_v_ran), 3=(seq_v_seq)or 3=(ran_v_seq)"
@@ -42,13 +42,13 @@ class Console
     ai_v_ai = gets.chomp.to_s
       if ai_v_ai == "1"
         @player1 = Playerrand.new("x") 
-        @player2 == Playerrand.new("o") 
+        @player2 = Playerrand.new("o") 
       elsif ai_v_ai == "2"  
         @player1 = Playerseq.new("x") 
-        @player2 == Playerseq.new("o")
+        @player2 = Playerseq.new("o")
       elsif ai_v_ai == "3"   
         @player1 = Playerrand.new("x") 
-        @player2 == Playerseq.new("o") 
+        @player2 = Playerseq.new("o") 
       else
 p       "Does Not Compute"         
       end
@@ -76,7 +76,7 @@ p       "Does Not Compute"
 ###(((((()))((((((()))))((((((Validity))))))(((((()))(((((())))))))))###  
   def checkval(choice)
     if  board.val_spot(board.board,choice) == true
-      board.ud(current_player.marker,choice)
+      board.ud(@current_player.marker,choice)
     else 
       p "Does Not Compute"
       get_move
@@ -84,9 +84,9 @@ p       "Does Not Compute"
   end 
 ###(((((()))((((((()))))((((((Player Cycle))))))(((((()))(((((())))))))))###
   def player_sel(player1,player2)
-    if current_player == @player1
+    if current_player == player1
       @current_player = @player2
-    else current_player == @player2
+    else current_player == player2
       @current_player = @player1
     end   
     @current_player
