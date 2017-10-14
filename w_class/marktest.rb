@@ -107,9 +107,9 @@ class Test_marker < Minitest::Test
   def test_winmove2
     board = Board.new
     player = Playerunbeets.new("o")
-    choice = ["1","3"]
-    board.ud(player,choice)
-    assert_equal(2, player.win_move(board))
+    choice = [1,3]
+    board.ud(board,player,choice)
+    assert_equal(2, player.win_move(board,move))
   end  
 
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###

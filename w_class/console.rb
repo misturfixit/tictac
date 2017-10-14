@@ -5,16 +5,16 @@ require_relative "pc_unbeets.rb"
 require_relative "board.rb"
 class Console
   
-  attr_accessor :board, :player1, :player2, :marker
-  ###(((((()))((((((()))))((((((INIT))))))(((((()))(((((())))))))))###
+  attr_accessor :board, :player1, :player2, :marker, :current_player
+  ###(((((()))((((((()))))((((((INIT))))))(((((()))))))(((((())))))))))###
   def  initialize() 
     @board = Board.new 
-    # @marker = marker
-    @player1 = player1
+    @marker = marker
+    # @player1 = @current_player
     @player2 = player2
-   # @current_player = player1
+    @current_player = player1
   end  
-###((((((G)))(((((((A)))))((((((GameSetup))))))((((((M)))((((((E))))))))))###
+###((((((G)))(((((((A)))))((((((GameSetup))))))((((((M)))((((((E)))))))###
   def playertype()
         p "   How Many Hoomans?:..1, 2 or 0  "
     hooms = gets.chomp.to_s
@@ -58,7 +58,7 @@ p       "Does Not Compute"
   def print_board()
     p "                                                             "
     p "                                                             "
-    p "       OK #{current_player.marker} it's your turn   "
+    p "       OK #{@current_player.marker} it's your turn   "
     p "       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   "
     p "                                                             "
     p "       #{@board.board[0]}  |!| #{@board.board[1]} |!| #{@board.board[2]}  "
@@ -71,12 +71,12 @@ p       "Does Not Compute"
   end
 ###(((((()))((((((()))))((((((Move))))))(((((()))(((((())))))))))###
   def get_move()
-    @current_player.move(@board.board)
+    @current_player.move(board.board)
   end
 ###(((((()))((((((()))))((((((Validity))))))(((((()))(((((())))))))))###  
   def checkval(choice)
     if  board.val_spot(board.board,choice) == true
-      board.ud(@current_player.marker,choice)
+      board.ud(@board.board,@current_player.marker,choice)
     else 
       p "Does Not Compute"
       get_move

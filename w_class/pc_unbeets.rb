@@ -6,10 +6,11 @@ class Playerunbeets
 		@marker = marker
 	end
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-  def win_move(board)
+  def win_move(board,marker)
     @board = board
     player = player
     choice = []
+    p "#{board}dahells my board doooooinnnggggg????"
       board.each_with_index do |op_spot,index|
         #p op_spot
         #p index 
@@ -18,7 +19,7 @@ class Playerunbeets
             if @board.winr == true
               choice = op_spot
             end
-          @board.ud("#{index + 1}", "#{index + 1}")     
+          @board.board.ud("#{index + 1}", "#{index + 1}")     
         end
       end 
         if choice == []

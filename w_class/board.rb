@@ -5,16 +5,15 @@ class Board
 			@board = ["1","2","3","4","5","6","7","8","9"]
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
-	def ud(player,*choice)
-		@board[choice-1] = marker
+  def ud(board,marker,choice)
+    p "#{choice}is this getting there??????????????"
+	  board.board[choice -1] = marker
 		@board					
 	end	
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 	def val_spot(board,choice)
   choice = choice-1
-    if choice > 8
-      false
-    elsif choice < 0
+    if choice > 8  || choice < 0
       false
     elsif @board[choice] == "x" || @board[choice] == "o"
       false
