@@ -10,8 +10,7 @@ class Playerrand
 		ind = []
 		board.each_with_index do |val,index|
 		  if	val == "x" 
-		   elsif val == "o"
-		  
+		   elsif val == "o"		  
 		  else 
 		  	ind << index+1
 		 end	

@@ -5,9 +5,9 @@ class Board
 			@board = ["1","2","3","4","5","6","7","8","9"]
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
-  def ud(board,marker,choice)
+  def ud(board,choice)
     p "#{choice}is this getting there??????????????"
-	  board.board[choice -1] = marker
+	  @board[choice-1] = marker
 		@board					
 	end	
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###

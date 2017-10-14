@@ -1,6 +1,6 @@
 require_relative "console.rb"
 
-game = Console.new #Playerhuman.new("x"), Playerrand.new("x")
+game = Console.new, Playerhuman.new("x"), Playerrand.new("o")
 #  game = run
 p
 p
@@ -35,8 +35,5 @@ p
       else
         game.player_sel
       end  
-        # game.print_board
-        # move = game.get_move
-        # game.checkval(move)
-        # game.print_board
+       
     end

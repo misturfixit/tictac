@@ -55,7 +55,7 @@ p       "Does Not Compute"
     end   
   end  
 ###(((((()))((((((()))))((((((Board))))))(((((()))(((((())))))))))###
-  def print_board()
+  def print_board(marker)
     p "                                                             "
     p "                                                             "
     p "       OK #{@current_player.marker} it's your turn   "
@@ -75,7 +75,7 @@ p       "Does Not Compute"
   end
 ###(((((()))((((((()))))((((((Validity))))))(((((()))(((((())))))))))###  
   def checkval(choice)
-    if  board.val_spot(board.board,choice) == true
+    if  board.val_spot(@board.board,choice) == true
       board.ud(@board.board,@current_player.marker,choice)
     else 
       p "Does Not Compute"
