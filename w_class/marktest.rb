@@ -55,8 +55,8 @@ class Test_marker < Minitest::Test
     player = Playerrand.new("o").move(board)
     assert_equal(true, [1,2,9].include?(player))
   end  
-###^^^^^^^^^^^^^^^^^^^^^^^^^^^*End Ranmove Test*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^###  
-###vvvvvvvvvvvvvvvvvvvvvvvvvvvvUnbeat Testvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
+###^^^^^^^^^^^^^^^^^^^^^^^^*End Ranmove Test*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^###  
+###vvvvvvvvvvvvvvvvvvvvvvvvvvUnbeat Testvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
 ###((((((9)))((((((()))))((((((UnBeat FirstMove))))))(((((()))(((((())))))))))###
   def test_f_move_ub1
     board = ["1","2","3","4","5","6","7","8","9"]

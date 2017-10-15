@@ -37,7 +37,8 @@ class Console
         @player2 = Playerhuman.new("o")
       elsif hooms == "0"
         p "   Which AIs Would you like to see beat up one another?"
-        p "   1=(ran_v_ran), 3=(seq_v_seq)or 3=(ran_v_seq)"
+        p "   1 =(Ran_v_Ran), 3 =(Seq_v_Seq), 4 =(Ran_v_Seq),
+              5 =(Garry_v_Ran), 6 =(Garry_v_Seq), 7 =(Garry_v_Garry) "
         p 
     ai_v_ai = gets.chomp.to_s
       if ai_v_ai == "1"
@@ -50,7 +51,7 @@ class Console
         @player1 = Playerrand.new("x") 
         @player2 = Playerseq.new("o") 
       else
-p       "Does Not Compute"         
+        p       "Does Not Compute"         
       end
     end 
     @current_player = player1
