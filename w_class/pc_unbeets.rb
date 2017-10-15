@@ -55,27 +55,7 @@ class Playerunbeets
 end 
 
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-def win(ttt_board, marker)
-  state = [
-       [ttt_board[0],ttt_board[1],ttt_board[2]],
-       [ttt_board[3],ttt_board[4],ttt_board[5]],
-       [ttt_board[6],ttt_board[7],ttt_board[8]],
-       [ttt_board[0],ttt_board[3],ttt_board[6]],
-       [ttt_board[1],ttt_board[4],ttt_board[7]],
-       [ttt_board[2],ttt_board[5],ttt_board[8]],
-       [ttt_board[0],ttt_board[4],ttt_board[8]],
-       [ttt_board[2],ttt_board[4],ttt_board[6]]
-  ]
-  winnums = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
-  choice = 10
-  state.each_with_index do |arya, index|
-       if arya.count(marker) == 2 && arya.count("") == 1
-            win = arya.index("")
-            choice = winnums[index][win]
-       end
-  end
-  choice
-end
+
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###

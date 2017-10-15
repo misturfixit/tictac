@@ -95,24 +95,24 @@ class Test_marker < Minitest::Test
   end  
 ###^^^^^^^^^^^^^^^^^^^^^^^^^End Fmove Test^^^^^^^^^^^^^^^^^^^^^^^^^^###
 ###vvvvvvvvvvvvvvvvvvvvvvvvvvvvUnbeat Testvvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
-###(((((()))((((((()))))((((((Winmove))))))(((((()))(((((())))))))))###
-  # def test_win1
-  #   board = Board.new
-  #   player = Playerunbeets.new("o")
-  #   choices = choice
-  #   board.ud(player, choices)
-  #   assert_equal(false, player.win_move(board))
-  # end  
+###(((((()))((((((()))))((((((Winmove))))))(((((()))(((((())))))))))### 
+def test_winmove1
+  board = Board.new
+  player = Playerunbeets.new("o")
+  board.place_marker(player.marker,1)
+  board.place_marker(player.marker,3)
+  assert_equal("2", player.win_move(board))
+end   
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-  def test_winmove2
-    board = Board.new
-    player = Playerunbeets.new("o")
-    board.place_marker(player.marker,1)
-    board.place_marker(player.marker,3)
-    assert_equal("2", player.win_move(board))
-  end  
+def test_winmove2
+  board = Board.new
+  player = Playerunbeets.new("o")
+  board.place_marker(player.marker,4)
+  board.place_marker(player.marker,6)
+  assert_equal("5", player.win_move(board))
+end   
+###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 end
