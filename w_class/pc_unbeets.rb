@@ -6,20 +6,19 @@ class Playerunbeets
 		@marker = marker
 	end
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-  def win_move(board,marker)
+  def win_move(board)
     @board = board
-    player = player
     choice = []
     p "#{board}dahells my board doooooinnnggggg????"
-      board.each_with_index do |op_spot,index|
+      board.board.each_with_index do |op_spot,index|
         #p op_spot
         #p index 
         if op_spot == "#{index + 1}"
-          @board.ud(player,op_spot)
-            if @board.winr == true
+          @board.place_marker(@marker,op_spot)
+            if @board.winr(@board) == true
               choice = op_spot
             end
-          @board.board.ud("#{index + 1}", "#{index + 1}")     
+          @board.place_marker("#{index + 1}", "#{index + 1}")     
         end
       end 
         if choice == []
@@ -56,6 +55,27 @@ class Playerunbeets
 end 
 
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+def win(ttt_board, marker)
+  state = [
+       [ttt_board[0],ttt_board[1],ttt_board[2]],
+       [ttt_board[3],ttt_board[4],ttt_board[5]],
+       [ttt_board[6],ttt_board[7],ttt_board[8]],
+       [ttt_board[0],ttt_board[3],ttt_board[6]],
+       [ttt_board[1],ttt_board[4],ttt_board[7]],
+       [ttt_board[2],ttt_board[5],ttt_board[8]],
+       [ttt_board[0],ttt_board[4],ttt_board[8]],
+       [ttt_board[2],ttt_board[4],ttt_board[6]]
+  ]
+  winnums = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+  choice = 10
+  state.each_with_index do |arya, index|
+       if arya.count(marker) == 2 && arya.count("") == 1
+            win = arya.index("")
+            choice = winnums[index][win]
+       end
+  end
+  choice
+end
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###

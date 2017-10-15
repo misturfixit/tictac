@@ -1,13 +1,13 @@
 class Board
 
-	attr_accessor :board
+	attr_accessor :board, :marker, :choice
 	def	initialize()
 			@board = ["1","2","3","4","5","6","7","8","9"]
 	end
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
-  def ud(board,choice)
-    p "#{choice}is this getting there??????????????"
-	  @board[choice-1] = marker
+  def place_marker(marker,choice)
+    # p "#{choice}is this getting there??????????????"
+	  @board[choice.to_i - 1] = marker
 		@board					
 	end	
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
@@ -22,7 +22,7 @@ class Board
     end     
   end 
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
-	def f_board()
+	def full?()
     if  @board.include?("1")||@board.include?("2")||
         @board.include?("3")||@board.include?("4")||
         @board.include?("5")||@board.include?("6")||
@@ -47,7 +47,7 @@ class Board
 ###(((((()))((()))((()))((()))((())))((())))((())((())))###
 	def winr(board)
     win = []
-    win_combos(board).each do |comb|
+    win_combos(board.board).each do |comb|
       if comb[0] == "x" && comb[1] == "x" && comb[2] == "x"
         win << true
       elsif comb[0] == "o" && comb[1] == "o" && comb[2] == "o"

@@ -1,7 +1,7 @@
 require_relative "console.rb"
 
-game = Console.new, Playerhuman.new("x"), Playerrand.new("o")
-#  game = run
+$game = Console.new
+#  $game = run
 p
 p
 p
@@ -16,24 +16,24 @@ p
 p
 ###(((((((()))))))((((((()))))))((((((()))))))((((((())))))))###
 
-  #  game.playertype
-    until game == "done" do
-      game.print_board
-      move = game.get_move
-      game.checkval(move)
-      game.print_board
-      if game.board.winr(game.board.board,game.current_player.marker) == true
+   #$game.setup_players
+    until $game == "done" do
+      $game.print_board
+      move = $game.get_move
+      $game.checkval(move)
+      $game.print_board
+      if $game.board.winr($game.board) == true
         p
-        p "Player #{game.@current_player.marker} Wins This One"
-        game = "done"
+        p "Player #{$game.current_player.marker} Wins This One"
+        $game = "done"
         
-      elsif game.board.f_board == true
+      elsif $game.board.full? == true
         p
         p "KiTty DoNe Got THis One"  
-        game = "done"
+        $game = "done"
        
       else
-        game.player_sel
+        $game.player_sel
       end  
        
     end

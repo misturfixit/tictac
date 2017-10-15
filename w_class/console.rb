@@ -9,13 +9,13 @@ class Console
   ###(((((()))((((((()))))((((((INIT))))))(((((()))))))(((((())))))))))###
   def  initialize() 
     @board = Board.new 
-    @marker = marker
-    # @player1 = @current_player
-    @player2 = player2
-    @current_player = player1
+    @player1 
+    @player2 = setup_players
+    @current_player
+    @inactive_player
   end  
 ###((((((G)))(((((((A)))))((((((GameSetup))))))((((((M)))((((((E)))))))###
-  def playertype()
+  def setup_players()
         p "   How Many Hoomans?:..1, 2 or 0  "
     hooms = gets.chomp.to_s
       if hooms == "1"  
@@ -52,10 +52,12 @@ class Console
       else
 p       "Does Not Compute"         
       end
-    end   
+    end 
+    @current_player = player1
+    @inactive_player = player2  
   end  
 ###(((((()))((((((()))))((((((Board))))))(((((()))(((((())))))))))###
-  def print_board(marker)
+  def print_board()
     p "                                                             "
     p "                                                             "
     p "       OK #{@current_player.marker} it's your turn   "
@@ -71,25 +73,23 @@ p       "Does Not Compute"
   end
 ###(((((()))((((((()))))((((((Move))))))(((((()))(((((())))))))))###
   def get_move()
-    @current_player.move(board.board)
+    @current_player.move(@board.board)
   end
 ###(((((()))((((((()))))((((((Validity))))))(((((()))(((((())))))))))###  
   def checkval(choice)
-    if  board.val_spot(@board.board,choice) == true
-      board.ud(@board.board,@current_player.marker,choice)
+    if  @board.val_spot(@board.board,choice) == true
+      @board.place_marker(@current_player.marker,choice)
     else 
       p "Does Not Compute"
       get_move
     end     
   end 
 ###(((((()))((((((()))))((((((Player Cycle))))))(((((()))(((((())))))))))###
-  def player_sel(player1,player2)
-    if current_player == player1
-      @current_player = @player2
-    else current_player == player2
-      @current_player = @player1
-    end   
-    @current_player
+  def player_sel()
+      temp_current_player = @current_player
+      temp_inactive_player = @inactive_player
+      @current_player = temp_inactive_player
+      @inactive_player = temp_current_player
   end 
   
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
