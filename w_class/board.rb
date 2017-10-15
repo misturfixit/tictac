@@ -12,7 +12,7 @@ class Board
 	end	
 ###(((((()))((()))((()))(((ValidSpot)))((())))((())))((())((())))###
 	def val_spot(board,choice)
-  choice = choice-1
+    choice = choice-1
     if choice > 8  || choice < 0
       false
     elsif @board[choice] == "x" || @board[choice] == "o"
