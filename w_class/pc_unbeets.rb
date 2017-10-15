@@ -9,7 +9,7 @@ class Playerunbeets
   def win_move(board)
     @board = board
     choice = []
-    p "#{board}dahells my board doooooinnnggggg????"
+    # p "#{board}dahells my board doooooinnnggggg????"
       board.board.each_with_index do |op_spot,index|
         #p op_spot
         #p index 

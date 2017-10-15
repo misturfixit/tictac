@@ -112,7 +112,13 @@ def test_winmove2
   assert_equal("5", player.win_move(board))
 end   
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-
+def test_winmove3
+  board = Board.new
+  player = Playerunbeets.new("o")
+  board.place_marker(player.marker,7)
+  board.place_marker(player.marker,9)
+  assert_equal("8", player.win_move(board))
+end   
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 end
