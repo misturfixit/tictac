@@ -83,12 +83,13 @@ class Console
     p "                                                             "
     p "                                                             "
   end
+
 ###(((((()))((((((()))))((((((ShowBoardUpdate))))))(((((()))(((((())))))))))###
-def showbup(showboard, choice, marker)
-  choice = choice.to_i
-  @showboard[choice - 1] = marker
-  @showboard
-end
+  def showbup(showboard, choice, marker)
+    choice = choice.to_i
+    @showboard[choice - 1] = marker
+    @showboard
+  end
   ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(())((((GetMove)))(())))(((((()))(((((())))))))))###
   def get_move()
@@ -106,18 +107,14 @@ end
   end 
 ###(((((()))((((((()))))((((((Player Cycle))))))(((((()))(((((())))))))))###
   def player_sel()
-    # if  @current_player = @player1
-    #     @player2 = @inactive_player
-    # else  @current_player = @player2  
-    #       @player1 = @inactive_player
-    # end    
-  if current_player == @player1	
-    @inactive_player = player2	
-  else current_player == @player2	
-    @inactive_player = player1		
-  end   		
-     @current_player		
-        
+    if current_player == @player1	
+      @inactive_player = player2	
+    else current_player == @player2	
+      @inactive_player = player1		
+    end   		
+    @current_player		
+    
   end  
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###  
+  ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###  
 end
+
