@@ -111,10 +111,10 @@ end
     # else  @current_player = @player2  
     #       @player1 = @inactive_player
     # end    
-  if @current_player == @player1	
-    @current_player = player2	
-  else @current_player == @player2	
-    @current_player = player1		
+  if current_player == @player1	
+    @inactive_player = player2	
+  else current_player == @player2	
+    @inactive_player = player1		
   end   		
      @current_player		
         
