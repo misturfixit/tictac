@@ -106,11 +106,18 @@ end
   end 
 ###(((((()))((((((()))))((((((Player Cycle))))))(((((()))(((((())))))))))###
   def player_sel()
-    if  @player1 = @current_player
-        @player2 = @inactive_player
-    else  @player2 = @current_player
-          @player1 = @inactive_player
-    end    
+    # if  @current_player = @player1
+    #     @player2 = @inactive_player
+    # else  @current_player = @player2  
+    #       @player1 = @inactive_player
+    # end    
+  if @current_player == @player1	
+    @current_player = player2	
+  else @current_player == @player2	
+    @current_player = player1		
+  end   		
+     @current_player		
+        
   end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###  
 end
