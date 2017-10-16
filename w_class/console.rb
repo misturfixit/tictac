@@ -81,11 +81,11 @@ class Console
     p "                                                             "
     p "                                                             "
   end
-###(((((()))((((((()))))((((((GetMove))))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))(())((((GetMove)))(())))(((((()))(((((())))))))))###
   def get_move()
     @current_player.move(@board.board)
   end
-###(((((()))((((((()))))((((((ValidityChek))))))(((((()))(((((())))))))))###  
+###(((((()))((((((()))))((((((ValidSpotChek))))))(((((()))(((((())))))))))###  
   def checkval(choice)
     if  @board.val_spot(@board.board,choice) == true
       @board.place_marker(@current_player.marker,choice)

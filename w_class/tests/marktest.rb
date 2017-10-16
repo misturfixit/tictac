@@ -170,14 +170,15 @@ class Test_marker < Minitest::Test
 ###^^^^^^^^^^^^^^^^^^^^^^^^^End^Winmove^Test^^^^^^^^^^^^^^^^^^^^^^^^^^###
 ###vvvvvvvvvvvvvvvvvvvvvvvvvvvv$SecMoveTest$vvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
 ###(((((()))((((((()))))((((((SecMove))))))(((((()))(((((())))))))))###
-  # def test_secmove1
-  #   board = Board.new
-  #   @board.board = ["x","x","3","4","o","6","7","8","9"]
-  #   player = Playerunbeets.new("o")
-  #   # board.place_marker(player.marker,1)
-  #   # board.place_marker(player.marker,2)
-  #   assert_equal("2", player.sec_move(board))
-  # end  
+  def test_secmove1
+    board = Board.new
+    #@board.board = ["x","x","3","4","o","6","7","8","9"]
+    player = Playerunbeets.new("o")
+    board.place_marker(player.marker,1)
+    board.place_marker(player.marker,2)
+    board.place_marker(player.marker,5)
+    assert_equal("3", player.sec_move(board))
+  end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
