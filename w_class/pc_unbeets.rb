@@ -5,8 +5,8 @@ class Playerunbeets
 	def initialize(marker)
 		@marker = marker
 	end
-  ###(((((()))((((((()))))((((((WinBlock))))))(((((()))(((((())))))))))###
-  ###(((((()))((((((()))))((((((Win_Func))))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((WinBlock))))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((Win_Func))))))(((((()))(((((())))))))))###
   def win_move(board)
     @board = board
     choice = []
@@ -27,8 +27,8 @@ class Playerunbeets
       else
         choice
       end     
-    end  
-    ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  end  
+  ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))((((((FirstMove))))))(((((()))(((((())))))))))###
   def f_move(board)	
     choice = []
@@ -56,22 +56,44 @@ class Playerunbeets
   end	
   ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))((((((SecMove))))))(((((()))(((((())))))))))###
-  def sec_move(board)
-    op_spot = []
-    playa_x = []
-    playa_o = []
-
-      board.each_with_index do |marked, index|
-        if marked == "x"
-          playa_x << index
-        elsif marked == "o"
-          playa_o << index
-        else marked == ""
-          op_spot << index
-        end
-      end
-  end  
-    ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  def second_move(board)
+  
+    one-n-eight = [0,7]
+    one-n-six = [0,5]
+    three-n-eight = [2,7]
+    three-n-four = [3,4]
+    seven_-n-two = [1,6]
+    seven-n-six = [5,6]
+    nine-n-two = [1,8]
+    nine-n-four = [3,8]
+    choice = 13
+  
+    if one-n-eight.all? {|a| board[a] == "x"}
+      choice = 6
+    elsif one-n-nsix.all? {|a| board[a] == "x"}
+      choice = 3
+    elsif three-n-eight.all? {|a| board[a] == "x"}
+      choice = 9
+    elsif three-n-four.all? {|a| board[a] == "x"}
+      choice = 1
+    elsif seven-n-two.all? {|a| board[a] == "x"}
+      choice = 1
+    elsif seven-n-six.all? {|a| board[a] == "x"}
+      choice = 3
+    elsif nine-n-two.all? {|a| board[a] == "x"}
+      choice = 1
+    else  nine-n-four.all? {|a| board[a] == "x"}
+      choice = 1
+    end
+  end
+###(((((()))((((((()))))((((((MoveFunc))))))(((((()))(((((())))))))))###
+  def move(board)
+    if board.count(player1) <= 1
+      f_move(board)
+    elsif win_move(board) <= 9
+    elsif 
+      second_move(board )    
+  end   
     ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
     ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 end 
