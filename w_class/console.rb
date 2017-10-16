@@ -5,7 +5,7 @@ require_relative "pc_unbeets.rb"
 require_relative "board.rb"
 class Console
   
-  attr_accessor :board, :player1, :player2, :marker, :current_player
+  attr_accessor :board, :player1, :player2, :marker, :current_player, :showboard
 ###(((((()))((((((()))))((((((INIT))))))(((((()))))))(((((())))))))))###
   def  initialize() 
     @board = Board.new 
@@ -13,6 +13,7 @@ class Console
     @player2 = setup_players
     @current_player
     @inactive_player
+    @showboard = ["1","2","3","4","5","6","7","8","9"]
   end  
 ###((((((G)))(((((((A)))))((((((GameSetup))))))((((((M)))((((((E)))))))###
   def setup_players()
@@ -69,39 +70,47 @@ class Console
 ###(((((()))((((((()))))((((((PrintBoard))))))(((((()))(((((())))))))))###
   def print_board()
     p "                                                             "
+    
     p "                                                             "
     p "       OK #{@current_player.marker} it's your turn   "
     p "       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   "
     p "                                                             "
-    p "       #{@board.board[0]}  |!| #{@board.board[1]} |!| #{@board.board[2]}  "
+    p "       #{@showboard[0]}  |!| #{@showboard[1]} |!| #{@showboard[2]}  "
     p "       ===|!|===|!|===   "
-    p "       #{@board.board[3]}  |!| #{@board.board[4]} |!| #{@board.board[5]}  "
+    p "       #{@showboard[3]}  |!| #{@showboard[4]} |!| #{@showboard[5]}  "
     p "       ===|!|===|!|===   "
-    p "       #{@board.board[6]}  |!| #{@board.board[7]} |!| #{@board.board[8]}  "
+    p "       #{@showboard[6]}  |!| #{@showboard[7]} |!| #{@showboard[8]}  "
     p "                                                             "
     p "                                                             "
   end
+###(((((()))((((((()))))((((((ShowBoardUpdate))))))(((((()))(((((())))))))))###
+def showbup(showboard, choice, marker)
+  choice = choice.to_i
+  @showboard[choice - 1] = marker
+  @showboard
+end
+  ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(())((((GetMove)))(())))(((((()))(((((())))))))))###
   def get_move()
     @current_player.move(@board.board)
   end
-###(((((()))((((((()))))((((((ValidSpotChek))))))(((((()))(((((())))))))))###  
+###(((((()))((((((()))))((((((ChekVal))))))(((((()))(((((())))))))))###  
   def checkval(choice)
     if  @board.val_spot(@board.board,choice) == true
       @board.place_marker(@current_player.marker,choice)
+      showbup(showboard,choice,@current_player.marker)
     else 
       p "Does Not Compute"
-      get_move
+    get_move
     end     
   end 
 ###(((((()))((((((()))))((((((Player Cycle))))))(((((()))(((((())))))))))###
   def player_sel()
-    temp_current_player = @current_player
-    temp_inactive_player = @inactive_player
-    @current_player = temp_inactive_player
-    @inactive_player = temp_current_player
+    if  @player1 = @current_player
+        @player2 = @inactive_player
+    else  @player2 = @current_player
+          @player1 = @inactive_player
+    end    
   end  
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###  
 end

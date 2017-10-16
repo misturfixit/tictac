@@ -2,7 +2,7 @@ class Board
 
 	attr_accessor :board, :marker, :choice
 	def	initialize()
-		@board = ["1","2","3","4","5","6","7","8","9"]
+		@board = ["","","","","","","","",""]
 	end
 ###(((((()))((()))((()))(((Marker)))((())))((())))((())((())))###
   def place_marker(marker,choice)
@@ -11,8 +11,9 @@ class Board
 		@board					
 	end	
 ###(((((()))((()))((()))(((ValidSpot)))((())))((())))((())((())))###
-	def val_spot(board,choice)
-    choice = choice-1
+	def val_spot(board,marker)
+    bob = marker.to_i
+    choice = bob -1 
     if choice > 8  || choice < 0
       false
     elsif @board[choice] == "x" || @board[choice] == "o"
@@ -23,11 +24,7 @@ class Board
   end 
 ###(((((()))((()))((()))(((FullBoard)))((())))((())))((())((())))###
 	def full?()
-    if  @board.include?("1")||@board.include?("2")||
-        @board.include?("3")||@board.include?("4")||
-        @board.include?("5")||@board.include?("6")||
-        @board.include?("7")||@board.include?("8")||
-        @board.include?("9") 
+    if  @board.include?("") 
       false
     else
       true
