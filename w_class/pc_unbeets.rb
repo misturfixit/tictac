@@ -6,27 +6,31 @@ class Playerunbeets
 		@marker = marker
 	end
 ###(((((()))((((((()))))((((((//Win_Func//))))))(((((()))(((((())))))))))###
-  # def win_move(board)
-  #   @board = board
-  #   choice = []
-  #   # p "#{board}dahells my board doooooinnnggggg????"
-  #   board.board.each_with_index do |op_spot,index|
-  #     #p op_spot
-  #     #p index 
-  #     if op_spot == "#{index + 1}"
-  #         @board.place_marker(@marker,op_spot)
-  #       if @board.winr(@board) == true
-  #         choice = op_spot
-  #       end
-  #       @board.place_marker("#{index + 1}", "#{index + 1}")     
-  #     end
-  #     end 
-  #     if choice == []
-  #       false
-  #     else
-  #       choice
-  #     end     
-  # end  
+###(((((()))((((((()))))((((((WinBlockFunc))))))(((((()))(((((())))))))))###  
+  def win_move(board)
+   # p "#{board}....boardheeeree/....././../.."
+    board_state = [
+      [board[0],board[1],board[2]],
+      [board[3],board[4],board[5]],
+      [board[6],board[7],board[8]],
+      [board[0],board[3],board[6]],
+      [board[1],board[4],board[7]],
+      [board[2],board[5],board[8]],
+      [board[0],board[4],board[8]],
+      [board[2],board[4],board[6]]]
+      
+      winnums = [[0,1,2], [3,4,5], 
+        [6,7,8], [0,3,6], [1,4,7], 
+        [2,5,8], [0,4,8], [2,4,6]]
+      choice = 13
+      board_state.each_with_index do |vals, index|
+        if vals.count(@marker) == 2 && vals.count("") == 1
+          win = vals.index("")
+          choice = winnums[index][win]
+        end
+      end
+      choice+1
+    end
   ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))((((((FirstMove))))))(((((()))(((((())))))))))###
   def f_move(board)	
@@ -123,29 +127,5 @@ class Playerunbeets
   end     
   ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
   
-  ###(((((()))((((((()))))((((((WinBlockFunc))))))(((((()))(((((())))))))))###  
-  def win_move(board)
-    p "#{board}....boardheeeree/....././../.."
-    board_state = [
-      [board[0],board[1],board[2]],
-      [board[3],board[4],board[5]],
-      [board[6],board[7],board[8]],
-      [board[0],board[3],board[6]],
-      [board[1],board[4],board[7]],
-      [board[2],board[5],board[8]],
-      [board[0],board[4],board[8]],
-      [board[2],board[4],board[6]]]
-      
-      winnums = [[0,1,2], [3,4,5], 
-      [6,7,8], [0,3,6], [1,4,7], 
-      [2,5,8], [0,4,8], [2,4,6]]
-      choice = 13
-      board_state.each_with_index do |vals, index|
-        if vals.count(@marker) == 2 && vals.count("") == 1
-          win = vals.index("")
-          choice = winnums[index][win]
-        end
-      end
-      choice+1
-    end
+ 
 end 
