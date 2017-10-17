@@ -10,8 +10,8 @@ enable :sessions
 ###(((((()))((((((()))))((((((InitRoute))))))(((((()))(((((())))))))))###
 get '/' do
   session[:board] = Board.new
-  session[:player1] = Playerhuman.new("x")
- 
+  session[:player1] = Playerhuman.new("x") 
+  
   erb :open
 end    
 ###(((((()))((((((()))))((((GameSetup))))(((-++()))(((((())))))))))###
