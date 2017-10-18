@@ -38,8 +38,7 @@ class Console
           @player2 = Playerhuman.new("o")
       elsif hooms == "0"
             p "   Which AIs Would you like to see beat up one another?"
-            p "   1 =(Ran_v_Ran), 2 =(Seq_v_Seq), 3 =(Ran_v_Seq),
-                  4 =(Garry_v_Ran), 5 =(Garry_v_Seq), 6 =(Garry_v_Garry) "
+            p "   1 =(Ran_v_Ran), 2 =(Seq_v_Seq), 3 =(Ran_v_Seq), 4 =(Garry_v_Ran), 5 =(Garry_v_Seq), 6 =(Garry_v_Garry) "
             p 
         ai_v_ai = gets.chomp.to_s
             if ai_v_ai == "1"

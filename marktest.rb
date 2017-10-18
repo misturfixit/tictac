@@ -39,8 +39,8 @@ class Test_marker < Minitest::Test
 		player = Playerseq.new("o")
 		assert_equal(9, player.move(["x","o","x","o","x","o","x","o","9"]))
 	end
-###^^^^^^^^^^^^^^^^^^^^^^^^^*End Seq Test*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^###
-###vvvvvvvvvvvvvvvvvvvvvvvvv*Ranmove Test*vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
+###^^^^^^^^^^^^^^^^^^^^^^^^^*EndSeqTest*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^###
+###vvvvvvvvvvvvvvvvvvvvvvvvv*RanmoveTest*vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
 ###((((((7)))((((((()))))((((((Ran))))))(((((()))(((((())))))))))###
   def test_moveran1
     board = ["1","2","3","4","5","6","7","8","9"]
@@ -94,93 +94,102 @@ class Test_marker < Minitest::Test
     assert_equal("7", player.f_move(board))
   end  
 ###^^^^^^^^^^^^^^^^^^^^^^^^^End^Fmove^Test^^^^^^^^^^^^^^^^^^^^^^^^^^###
-###vvvvvvvvvvvvvvvvvvvvvvvvvvvv_Win$Block$Test_vvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
+# ###vvvvvvvvvvvvvvvvvvvvvvvvvvvv_Win$Block$Test_vvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
 # ###((((((15)))((((((()))))((((((Winmove_Hrzl))))))(((((()))(((((())))))))))### 
-  def test_winmove1
-    board = Board.new
-    player = Playerunbeets.new("o")
-    board.place_marker(player.marker,1)
-    board.place_marker(player.marker,3)
-    assert_equal(2, player.win_move(board.board))
-  end   
-###((((((16)))((((((()))))((((((Winmove_Hrzl))))))(((((()))(((((())))))))))###
-  def test_winmove2
-    board = Board.new
-    player = Playerunbeets.new("o")
-    board.place_marker(player.marker,4)
-    board.place_marker(player.marker,6)
-    assert_equal(5, player.win_move(board.board))
-  end   
-###((((((17)))((((((()))))((((((Winmove_Hrzl))))))(((((()))(((((())))))))))###
-  def test_winmove3
-    board = Board.new
-    player = Playerunbeets.new("o")
-    board.place_marker(player.marker,7)
-    board.place_marker(player.marker,9)
-    assert_equal(8, player.win_move(board.board))
-  end   
-###((((((18)))((((((()))))((((((Winmove_Hrzl))))))(((((()))(((((())))))))))###
-  def test_winmove4
-    board = Board.new
-    player = Playerunbeets.new("o")
-    board.place_marker(player.marker,7)
-    board.place_marker(player.marker,9)
-    assert_equal(8, player.win_move(board.board))
-  end   
-###((((((19)))((((((()))))((((((Winmove_Vert))))))(((((()))(((((())))))))))###
-  def test_winmove5
-    board = Board.new
-    player = Playerunbeets.new("o")
-    board.place_marker(player.marker,1)
-    board.place_marker(player.marker,7)
-    assert_equal(4, player.win_move(board.board))
-  end   
-###((((((20)))((((((()))))((((((Winmove_Vert))))))(((((()))(((((())))))))))###
-  def test_winmove6
-    board = Board.new
-    player = Playerunbeets.new("o")
-    board.place_marker(player.marker,2)
-    board.place_marker(player.marker,5)
-    assert_equal(8, player.win_move(board.board))
-  end   
-###((((((21)))((((((()))))((((((Winmove_Vert))))))(((((()))(((((())))))))))###
-  def test_winmove7
-    board = Board.new
-    player = Playerunbeets.new("o")
-    board.place_marker(player.marker,3)
-    board.place_marker(player.marker,6)
-    assert_equal(9, player.win_move(board.board))
-  end   
-###((((((22)))((((((()))))((((((Winmove_Diag))))))(((((()))(((((())))))))))###
-  def test_winmove8
-    board = Board.new
-    player = Playerunbeets.new("o")
-    board.place_marker(player.marker,1)
-    board.place_marker(player.marker,5)
-    assert_equal(9, player.win_move(board.board))
-  end   
-# ###((((((23)))((((((()))))((((((Winmove_Diag))))))(((((()))(((((())))))))))###
+#   def test_winmove1
+#     board = Board.new
+#     player = Playerunbeets.new("o")
+#     board.place_marker(player.marker,1)
+#     board.place_marker(player.marker,3)
+#     assert_equal(2, player.win_move(board.board))
+#   end   
+# ###((((((16)))((((((()))))((((((Winmove_Hrzl))))))(((((()))(((((())))))))))###
+#   def test_winmove2
+#     board = Board.new
+#     player = Playerunbeets.new("o")
+#     board.place_marker(player.marker,4)
+#     board.place_marker(player.marker,6)
+#     assert_equal(5, player.win_move(board.board))
+#   end   
+# ###((((((17)))((((((()))))((((((Winmove_Hrzl))))))(((((()))(((((())))))))))###
+#   def test_winmove3
+#     board = Board.new
+#     player = Playerunbeets.new("o")
+#     board.place_marker(player.marker,7)
+#     board.place_marker(player.marker,9)
+#     assert_equal(8, player.win_move(board.board))
+#   end   
+# ###((((((18)))((((((()))))((((((Winmove_Hrzl))))))(((((()))(((((())))))))))###
+#   def test_winmove4
+#     board = Board.new
+#     player = Playerunbeets.new("o")
+#     board.place_marker(player.marker,7)
+#     board.place_marker(player.marker,9)
+#     assert_equal(8, player.win_move(board.board))
+#   end   
+# ###((((((19)))((((((()))))((((((Winmove_Vert))))))(((((()))(((((())))))))))###
+#   def test_winmove5
+#     board = Board.new
+#     player = Playerunbeets.new("o")
+#     board.place_marker(player.marker,1)
+#     board.place_marker(player.marker,7)
+#     assert_equal(4, player.win_move(board.board))
+#   end   
+# ###((((((20)))((((((()))))((((((Winmove_Vert))))))(((((()))(((((())))))))))###
+#   def test_winmove6
+#     board = Board.new
+#     player = Playerunbeets.new("o")
+#     board.place_marker(player.marker,2)
+#     board.place_marker(player.marker,5)
+#     assert_equal(8, player.win_move(board.board))
+#   end   
+# ###((((((21)))((((((()))))((((((Winmove_Vert))))))(((((()))(((((())))))))))###
+#   def test_winmove7
+#     board = Board.new
+#     player = Playerunbeets.new("o")
+#     board.place_marker(player.marker,3)
+#     board.place_marker(player.marker,6)
+#     assert_equal(9, player.win_move(board.board))
+#   end   
+# ###((((((22)))((((((()))))((((((Winmove_Diag))))))(((((()))(((((())))))))))###
+#   def test_winmove8
+#     board = Board.new
+#     player = Playerunbeets.new("o")
+#     board.place_marker(player.marker,1)
+#     board.place_marker(player.marker,5)
+#     assert_equal(9, player.win_move(board.board))
+#   end   
+# ####((((((23)))((((((()))))((((((Winmove_Diag))))))(((((()))(((((())))))))))###
   def test_winmove9
-    board = Board.new
+    board = ["x","2","x","4","5","6","7","8","9"]
     player = Playerunbeets.new("o")
-    board.place_marker(player.marker,1)
-    board.place_marker(player.marker,2)
-    assert_equal(3, player.win_move(board.board))
+    # board.place_marker(player.marker,1)
+    # board.place_marker(player.marker,2)
+    assert_equal(2, player.win_move(board))
   end   
 ###^^^^^^^^^^^^^^^^^^^^^^^^^End^Winmove^Test^^^^^^^^^^^^^^^^^^^^^^^^^^###
 ###vvvvvvvvvvvvvvvvvvvvvvvvvvvv$SecMoveTest$vvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
 ###(((((()))((((((()))))((((((SecMove))))))(((((()))(((((())))))))))###
-  # def test_secmove1
-  #   board = Board.new
-  #   #@board.board = ["x","x","3","4","o","6","7","8","9"]
-  #   player = Playerunbeets.new("o")
-  #   board.place_marker(player.marker,1)
-  #   board.place_marker(player.marker,2)
-  #   board.place_marker(player.marker,5)
-  #   assert_equal("3", player.sec_move(board))
-  # end  
+  def test_secmove1
+    board = ["x","2","3","4","5","x","7","8","9"]
+    player = Playerunbeets.new("o")
+    # board.place_marker(player.marker,1)
+    # board.place_marker(player.marker,2)
+    # board.place_marker(player.marker,5)
+    assert_equal(3, player.sec_move(board))
+ end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  def test_secmove2
+    board = ["1","2","3","4","5","x","x","8","9"]
+    player = Playerunbeets.new("o")
+    assert_equal(3, player.sec_move(board))
+  end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  def test_secmove3
+    board = ["x","2","3","4","5","6","7","x","9"]
+    player = Playerunbeets.new("o")
+    assert_equal(6, player.sec_move(board))
+  end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
