@@ -32,13 +32,13 @@ class Playerunbeets
           choice = winnums[index][win]    
         end
       end
-      choice+1
+      # choice+1
     end
   ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))((((((FirstMove))))))(((((()))(((((())))))))))###
   def f_move(board)	
     choice = []
-    p "#{board}ver my board????yarrrfffff........................"
+    # p "#{board}ver my board????yarrrfffff........................"
     if board.include?("o") || board.include?("x") == true   
       board.each_with_index do |val,index|
         if	val != "#{index+1}"
@@ -76,11 +76,11 @@ class Playerunbeets
             if  board[1] == ''
                 choice = 2
             elsif board[3] == ''
-                  choice = 4
+                choice = 4
             elsif board[5] == ''
-                  choice = 6
+                choice = 6
             else board[7] == ''
-                 choice = 8
+                choice = 8
             end
           end
         end
@@ -113,10 +113,10 @@ class Playerunbeets
       choice = 3
     elsif nine-n-two.all? {|a| board[a] == "x"}
       choice = 1
-    else  nine-n-four.all? {|a| board[a] == "x"}
+    else nine-n-four.all? {|a| board[a] == "x"}
       choice = 1
     end
-     #choice
+    #  choice
   end
   ###(((((()))((((((()))))((((((MoveFunc))))))(((((()))(((((())))))))))###
   def move(board)

@@ -63,9 +63,9 @@ class Console
             else
               p       "Does Not Compute"         
             end
-        else
-          p       "Does Not Compute"  
-        end   
+        # else
+        #   p       "Does Not Compute"  
+        # end   
     end 
     @current_player = player1
     @inactive_player = player2  
@@ -108,14 +108,14 @@ class Console
   end 
 ###(((((()))((((((()))))((((((Player Cycle))))))(((((()))(((((())))))))))###
   def player_sel()
-    if current_player == @player1	
-      @inactive_player = player2	
-    else current_player == @player2	
-      @inactive_player = player1		
-    end   		
-    @current_player		
-    
-  end  
+    if current_player == @player1
+        @current_player = player2
+    else current_player == @player2
+        @current_player = player1
+    end
+    @current_player
+
+  end
   ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###  
   ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 end
