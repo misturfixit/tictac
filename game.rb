@@ -20,18 +20,18 @@ p
       move = $game.get_move
       $game.checkval(move)
       $game.print_board
-      if $game.board.winr($game.board) == true
-        p
-        p "Player #{$game.current_player.marker} Wins This One"
-        $game = "done"
+        if $game.board.winr($game.board) == true
+          p
+          p "Player #{$game.current_player.marker} Wins This One"
+          $game = "done"
+          
+        elsif $game.board.full? == true
+          p
+          p "KiTty DoNe Got THis One"  
+          $game = "done"
         
-      elsif $game.board.full? == true
-        p
-        p "KiTty DoNe Got THis One"  
-        $game = "done"
-       
-      else
-        $game.player_sel
-      end  
+        else
+          $game.player_sel
+        end  
        
     end

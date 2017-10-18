@@ -24,9 +24,12 @@ class Playerunbeets
         [2,5,8], [0,4,8], [2,4,6]]
       choice = 13
       board_state.each_with_index do |vals, index|
-        if vals.count(@marker) == 2 && vals.count("") == 1
+        if  vals.count(@marker) == 2 && vals.count("") == 1
+            win = vals.index("")
+            choice = winnums[index][win]
+        elsif  vals.count("x") == 2 && vals.count("") == 1
           win = vals.index("")
-          choice = winnums[index][win]
+          choice = winnums[index][win]    
         end
       end
       choice+1

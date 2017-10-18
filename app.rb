@@ -23,7 +23,7 @@ post '/1p_game' do
       session[:player2] = Playerseq.new("o")
     elsif  difc == "med"
       session[:player2] = Playerrand.new("o")
-    else 
+    else   difc == "hard"
       session[:player2] = Playerunbeets.new("o")
     end  
   redirect '/gameplay'

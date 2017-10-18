@@ -21,48 +21,51 @@ class Console
     hooms = gets.chomp.to_s
       if hooms == "1"  
         @player1 = Playerhuman.new("x")
-        p  "  Choose Difficulty Level::"
-        p  "  1=(easy), 2=(DeePBluE) or 3=(Garry Kasparov)"
-    pl2ai = gets.chomp.to_s
-        if pl2ai == "1"
-          @player2 = Playerseq.new("o") 
-        elsif pl2ai == "2"
-          @player2 = Playerrand.new("o")
-        elsif pl2ai == "3" 
-          @player2 = Playerunbeets.new("o") 
-        else
-        p       "Does Not Compute" 
-        end  
+            p  "  Choose Difficulty Level::"
+            p  "  1=(easy), 2=(DeePBluE) or 3=(Garry Kasparov)"
+        pl2ai = gets.chomp.to_s
+          if pl2ai == "1"
+              @player2 = Playerseq.new("o") 
+          elsif pl2ai == "2"
+              @player2 = Playerrand.new("o")
+          elsif pl2ai == "3" 
+              @player2 = Playerunbeets.new("o") 
+          else
+          p       "Does Not Compute" 
+          end  
       elsif hooms == "2"
-        @player1 = Playerhuman.new("x") 
-        @player2 = Playerhuman.new("o")
+          @player1 = Playerhuman.new("x") 
+          @player2 = Playerhuman.new("o")
       elsif hooms == "0"
-        p "   Which AIs Would you like to see beat up one another?"
-        p "   1 =(Ran_v_Ran), 2 =(Seq_v_Seq), 3 =(Ran_v_Seq),
-              4 =(Garry_v_Ran), 5 =(Garry_v_Seq), 6 =(Garry_v_Garry) "
-        p 
-    ai_v_ai = gets.chomp.to_s
-      if ai_v_ai == "1"
-        @player1 = Playerrand.new("x") 
-        @player2 = Playerrand.new("o") 
-      elsif ai_v_ai == "2"  
-        @player1 = Playerseq.new("x") 
-        @player2 = Playerseq.new("o")
-      elsif ai_v_ai == "3"   
-        @player1 = Playerrand.new("x") 
-        @player2 = Playerseq.new("o") 
-      elsif ai_v_ai == "4"   
-        @player1 = Playerrand.new("x") 
-        @player2 = Playerunbeets.new("o") 
-      elsif ai_v_ai == "5"   
-        @player1 = Playerunbeets.new("x") 
-        @player2 = Playerseq.new("o") 
-      elsif ai_v_ai == "6"   
-        @player1 = Playerunbeets.new("x") 
-        @player2 = Playerunbeets.new("o") 
-      else
-        p       "Does Not Compute"         
-      end
+            p "   Which AIs Would you like to see beat up one another?"
+            p "   1 =(Ran_v_Ran), 2 =(Seq_v_Seq), 3 =(Ran_v_Seq),
+                  4 =(Garry_v_Ran), 5 =(Garry_v_Seq), 6 =(Garry_v_Garry) "
+            p 
+        ai_v_ai = gets.chomp.to_s
+            if ai_v_ai == "1"
+              @player1 = Playerrand.new("x") 
+              @player2 = Playerrand.new("o") 
+            elsif ai_v_ai == "2"  
+              @player1 = Playerseq.new("x") 
+              @player2 = Playerseq.new("o")
+            elsif ai_v_ai == "3"   
+              @player1 = Playerrand.new("x") 
+              @player2 = Playerseq.new("o") 
+            elsif ai_v_ai == "4"   
+              @player1 = Playerrand.new("x") 
+              @player2 = Playerunbeets.new("o") 
+            elsif ai_v_ai == "5"   
+              @player1 = Playerunbeets.new("x") 
+              @player2 = Playerseq.new("o") 
+            elsif ai_v_ai == "6"   
+              @player1 = Playerunbeets.new("x") 
+              @player2 = Playerunbeets.new("o") 
+            else
+              p       "Does Not Compute"         
+            end
+        else
+          p       "Does Not Compute"  
+        end   
     end 
     @current_player = player1
     @inactive_player = player2  
@@ -70,9 +73,8 @@ class Console
 ###(((((()))((((((()))))((((((PrintBoard))))))(((((()))(((((())))))))))###
   def print_board()
     p "                                                             "
-    
     p "                                                             "
-    p "       OK #{@current_player.marker} it's your turn   "
+    p "       OK #{@current_player.marker} it's your turn  "
     p "       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   "
     p "                                                             "
     p "       #{@showboard[0]}  |!| #{@showboard[1]} |!| #{@showboard[2]}  "
@@ -90,7 +92,6 @@ class Console
     @showboard[choice - 1] = marker
     @showboard
   end
-  ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(())((((GetMove)))(())))(((((()))(((((())))))))))###
   def get_move()
     @current_player.move(@board.board)
@@ -102,7 +103,7 @@ class Console
       showbup(showboard,choice,@current_player.marker)
     else 
       p "Does Not Compute"
-    get_move
+      get_move
     end     
   end 
 ###(((((()))((((((()))))((((((Player Cycle))))))(((((()))(((((())))))))))###
@@ -116,5 +117,6 @@ class Console
     
   end  
   ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###  
+  ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 end
 
