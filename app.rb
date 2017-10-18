@@ -28,7 +28,16 @@ post '/1p_game' do
     end  
   redirect '/gameplay'
 end
+###(((((()))((((((()))))((((((2pGAME))))))(((((()))(((((())))))))))###
+# post '/humangame' do
+
+#       session[:player1] = Playerhuman.new("x")
+#       session[:player2] = Playerhuman.new("o")
+#   redirect '/gameplay'
+# end
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((GAMEPLAY))))))(((((()))(((((())))))))))###
   get '/gameplay' do
     mssg = params[:mssg] || ""
     erb :gameboard, locals:{board: session[:board].board,mssg: mssg}
@@ -37,17 +46,18 @@ end
 post '/gameloop' do
   move = params[:choice]
   
-  if session[:board].val_spot(session[:board].board,move) == true
-    session[:board].place_marker("x",move)
-  else redirect '/gameplay?mssg=invalid spot choose again'
+  if  session[:board].val_spot(session[:board].board,move) == true
+      session[:board].place_marker("x",move)
+  else 
+    redirect '/gameplay?mssg=invalid spot choose again'
   end   
-  if session[:board].winr(session[:board].board) || session[:board].full?
+  if  session[:board].winr(session[:board].board) || session[:board].full?
     redirect '/gameover'
   else  
-  ai = session[:player2].move(session[:board].board)  
-  session[:board].place_marker("o",ai)
+      ai = session[:player2].move(session[:board].board)  
+      session[:board].place_marker("o",ai)
   end
-  if session[:board].winr(session[:board].board) || session[:board].full?  
+  if  session[:board].winr(session[:board].board) || session[:board].full?  
     redirect '/gameover'
   else  
     redirect '/gameplay'
@@ -55,10 +65,10 @@ post '/gameloop' do
 end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
   get '/gameover' do
-    if session[:board].winr(session[:board].board) == true
+    if  session[:board].winr(session[:board].board) == true
       erb :winner, locals:{board: session[:board].board}
     else  
-    "KittIesGAme"
+      erb :kittie, locals:{board: session[:board].board}
     end
   end
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
