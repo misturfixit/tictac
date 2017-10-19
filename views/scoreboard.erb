@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+				<h1>LeaderBoard</h1>
+	<body>
+		<table width = 95% height = 75%>
+		
+		<h2>Scores</h2><br>
+        <%if score == ""%>
+  
+        <%else%>
+          <%s_board.each do |score|%>
+            <%score.each do |show|%>
+              <%=show%>
+            <%end%><br>
+          <%end%><br>
+        <%end%><br>
+	
+  		<form method="post" action="return">
+        <th>Names</th>
+        <th>Winner</th> 
+        <th>Score</th>
+      <%if list == ""%>
+
+			<%else%>
+				<%list.each do |row|%>
+					<tr>	
+						<td><input type="checkbox" name="awsd" value="<%=row['id']%>"></td>
+						<td><%=row['names']%></td>
+						<td><%=row['winner']%></td>									
+						<td><%=row['score']%></td>
+					</tr><br>
+				<%end%>	
+			<%end%>
+		</table>	 	

@@ -3,21 +3,26 @@
       <h3>One Player Game</h3>
       <h4>And Your Name Is?</h4>
     <form method="post" action="1p_game"> 
-      <input type="text" name="plyr_nm" placeholder="Player Name" required><br>
+      <input type="text" name="p_name" placeholder="Player Name" required><br>
       <input type="radio" name="difc" value="easy" checked>easy<br>
       <input type="radio" name="difc" value="med">medium<br>
       <input type="radio" name="difc" value="hard">hard<br>
-      <input type="submit">
+      <input type="submit"value = "GO">
     </form>
   
       <h3>Two Player Game</h3><br>
     <form method="post" action="humangame">
-      <input type="text" name="p_1name" placeholder="Player I Name" required><br>
+      <input type="text" name="p_1name" placeholder="Player I Name" required> <br>
+      <input type="text" name="p_2name" placeholder="Player II Name" required>
       <br>
-      <input type="text" name="p_2name" placeholder="Player II Name" required><br>
-      <br>
-      <input type="submit" name="Go" value="GO">
+      <input type="submit" name="go" value="GO">
     </form>
+      
+      <h3>LeaderBoard</h3><br>
+    <form method="post" action="score">
+			<input type="hidden" name="data[]">
+			<input type="submit" value="SCORE">
+		</form>
 
   </body>
 </html>
