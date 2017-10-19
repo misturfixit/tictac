@@ -168,7 +168,7 @@ class Test_marker < Minitest::Test
     assert_equal(2, player.win_move(board))
   end   
 ###^^^^^^^^^^^^^^^^^^^^^^^^^End^Winmove^Test^^^^^^^^^^^^^^^^^^^^^^^^^^###
-###vvvvvvvvvvvvvvvvvvvvvvvvvvvv$SecMoveTest$vvvvvvvvvvvvvvvvvvvvvvvvvvvvv###
+###vvvvvvvvvvvvvvvvvvvvvvvvvvvv$SecMoveTest$vvvvvvvvvvvvvvvvvvvvvvvvvvv###
 ###(((((()))((((((()))))((((((SecMove))))))(((((()))(((((())))))))))###
   def test_secmove1
     board = ["x","2","3","4","5","x","7","8","9"]
@@ -177,7 +177,7 @@ class Test_marker < Minitest::Test
     # board.place_marker(player.marker,2)
     # board.place_marker(player.marker,5)
     assert_equal(3, player.sec_move(board))
- end  
+  end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
   def test_secmove2
     board = ["1","2","3","4","5","x","x","8","9"]

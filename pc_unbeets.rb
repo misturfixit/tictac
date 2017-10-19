@@ -5,7 +5,6 @@ class Playerunbeets
 	def initialize(marker)
 		@marker = marker
 	end
-###(((((()))((((((()))))((((((//Win_Func//))))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))((((((WinBlockFunc))))))(((((()))(((((())))))))))###  
   def win_move(board)
    # p "#{board}....boardheeeree/....././../.."
