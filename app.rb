@@ -1,5 +1,5 @@
 require 'sinatra'
-# require_relative 'game.rb'
+require 'pg'
 require_relative 'console.rb'
 require_relative 'board.rb'
 require_relative 'pc_human.rb'
@@ -7,14 +7,14 @@ require_relative 'pc_seq.rb'
 require_relative 'pc_ran.rb'
 enable :sessions
 
-###(((((()))((((((()))))((((((InitRoute))))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((INIT'/'))))))(((((()))(((((())))))))))###
 get '/' do
   session[:board] = Board.new
   session[:player1] = Playerhuman.new("x") 
   
   erb :open
 end    
-###(((((()))((((((()))))((((GameSetup))))(((-++()))(((((())))))))))###
+###(((((()))((((((()))))((((1pGAME))))(((()))(((((())))))))))###
 post '/1p_game' do
   # session[:player1] = "x"
   # ret_name = params[:plyr_nm]
@@ -28,21 +28,19 @@ post '/1p_game' do
     end  
   redirect '/gameplay'
 end
-###(((((()))((((((()))))((((((2pGAME))))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))(((2pGAME)))))(((((()))(((((())))))))))###
 # post '/humangame' do
 
 #       session[:player1] = Playerhuman.new("x")
 #       session[:player2] = Playerhuman.new("o")
 #   redirect '/gameplay'
 # end
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))((((((GAMEPLAY))))))(((((()))(((((())))))))))###
   get '/gameplay' do
     mssg = params[:mssg] || ""
     erb :gameboard, locals:{board: session[:board].board,mssg: mssg}
   end  
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((GAMELOOP))))))(((((()))(((((())))))))))###
 post '/gameloop' do
   move = params[:choice]
   
@@ -63,7 +61,7 @@ post '/gameloop' do
     redirect '/gameplay'
   end  
 end  
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((GAMEOVER))))))(((((()))(((((())))))))))###
   get '/gameover' do
     if  session[:board].winr(session[:board].board) == true
       erb :winner, locals:{board: session[:board].board}
@@ -71,7 +69,8 @@ end
       erb :kittie, locals:{board: session[:board].board}
     end
   end
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((KEEPSCORE))))))(((((()))(((((())))))))))###
+
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
