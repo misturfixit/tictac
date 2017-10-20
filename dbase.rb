@@ -16,7 +16,7 @@ def maketable()
               ID bigserial NOT NULL,
               names text,
               winner text,
-              score text)");
+              time text)");
 	rescue PG::Error => e
 	   puts e.message
 	ensure
@@ -34,7 +34,7 @@ def add_entry(data)
       password: ENV['RDS_PASSWORD']
       }
     d_base = PG::Connection.new(db_info)
-    d_base.exec("INSERT INTO public.scoreboard(names,winner,score)VALUES('#{data[0]} ','#{data[1]}','#{data[2]}')");            
+    d_base.exec("INSERT INTO public.scoreboard(names,winner,time)VALUES('#{names}','#{winner}','#{time}')");            
   rescue PG::Error => e
     puts e.message
   ensure
@@ -42,7 +42,7 @@ def add_entry(data)
   end  
  end
 ###((((((()))))))((((((()))))))(SCOREBOARD)((((((()))))))((((((()))))))###
-def scoreboard(score)
+def get_score_b(score)
   begin
     db_info = {
     host: ENV['RDS_HOST'],
@@ -52,13 +52,14 @@ def scoreboard(score)
     password: ENV['RDS_PASSWORD']
     }
   d_base = PG::Connection.new(db_info)
-  show = d_base.exec("SELECT * FROM public.scoreboard")
 
+  list = d_base.exec("SELECT * FROM public.scoreboard")
+            
   rescue PG::Error => e
     puts e.message
   ensure
     d_base.close if d_base
   end
-  show
+
 end 
 ###((((((()))))))((((((()))))))((((((()))))))((((((()))))))###

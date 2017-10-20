@@ -4,11 +4,10 @@
 	<body>
 		<table width = 95% height = 75%>
 		
-		<h2>Scores</h2><br>
-        <%if score == ""%>
+        <%if result == ""%>
   
         <%else%>
-          <%s_board.each do |score|%>
+          <%result.each do |score|%>
             <%score.each do |show|%>
               <%=show%>
             <%end%><br>
@@ -16,18 +15,19 @@
         <%end%><br>
 	
   		<form method="post" action="return">
+        <th>ScoreBoard</th>
         <th>Names</th>
         <th>Winner</th> 
-        <th>Score</th>
+        <th>Time</th>
       <%if list == ""%>
 
 			<%else%>
 				<%list.each do |row|%>
 					<tr>	
-						<td><input type="checkbox" name="awsd" value="<%=row['id']%>"></td>
+						<td><input type="hidden" name="scores" value="<%=row['id']%>"></td>
 						<td><%=row['names']%></td>
 						<td><%=row['winner']%></td>									
-						<td><%=row['score']%></td>
+						<td><%=row['time']%></td>
 					</tr><br>
 				<%end%>	
 			<%end%>
