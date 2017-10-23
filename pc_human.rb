@@ -6,6 +6,6 @@ class Playerhuman
   def move(board)
     # p 
     # p "OK Human...Pick a spot...1-9"
-    choice = gets.chomp.to_i
+    # choice = gets.chomp.to_i
   end
 end      

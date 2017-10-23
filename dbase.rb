@@ -13,10 +13,10 @@ def maketable()
   	  }
     d_base = PG::Connection.new(db_info)
     d_base.exec ("CREATE TABLE public.scoreboard (
-              ID bigserial NOT NULL,
-              names text,
+              p1_name text,
+              p2_name text,
               winner text,
-              time text)");
+              time time)");
 	rescue PG::Error => e
 	   puts e.message
 	ensure
@@ -34,7 +34,7 @@ def add_entry(data)
       password: ENV['RDS_PASSWORD']
       }
     d_base = PG::Connection.new(db_info)
-    d_base.exec("INSERT INTO public.scoreboard(names,winner,time)VALUES('#{names}','#{winner}','#{time}')");            
+    d_base.exec("INSERT INTO public.scoreboard(p1_name,p2_name,winner,time)VALUES('#{p1_name}','#{p2_name},'#{winner}','#{time}')");            
   rescue PG::Error => e
     puts e.message
   ensure
@@ -42,7 +42,7 @@ def add_entry(data)
   end  
  end
 ###((((((()))))))((((((()))))))(SCOREBOARD)((((((()))))))((((((()))))))###
-def get_score_b(score)
+def get_scores(score)
   begin
     db_info = {
     host: ENV['RDS_HOST'],

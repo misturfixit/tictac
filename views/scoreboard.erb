@@ -15,8 +15,8 @@
         <%end%><br>
 	
   		<form method="post" action="return">
-        <th>ScoreBoard</th>
-        <th>Names</th>
+        <th>p1_name</th>
+        <th>p2_name</th>
         <th>Winner</th> 
         <th>Time</th>
       <%if list == ""%>
@@ -25,7 +25,8 @@
 				<%list.each do |row|%>
 					<tr>	
 						<td><input type="hidden" name="scores" value="<%=row['id']%>"></td>
-						<td><%=row['names']%></td>
+            <td><%=row['p1_name']%></td>
+						<td><%=row['p2_name']%></td>
 						<td><%=row['winner']%></td>									
 						<td><%=row['time']%></td>
 					</tr><br>
