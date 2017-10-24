@@ -15,7 +15,7 @@ class Console
   
   end  
   def player_sel()
-    p "  maybe #{current_player}here's the current___player_________????11!!!!!"
+    # p "  maybe__ #{current_player}__here's the current___player_________????11!!!!!"
     if current_player == @player1
         @current_player = player2
     else current_player == @player2
