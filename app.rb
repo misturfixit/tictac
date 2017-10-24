@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'pg'
-require_relative 'console.rb' 
+require_relative 'webconsole.rb' 
 require_relative 'dbase.rb'
 enable :sessions
   load './local_env.rb' if File.exists?('./local_env.rb')
@@ -10,6 +10,7 @@ get '/' do
   session[:board] = Board.new
   session[:player1] = Playerhuman.new("x") 
   session[:current_player] = session[:player1] 
+  session[:console] = Console.new
     # maketable()
   erb :open
 end    
@@ -45,25 +46,41 @@ end
 ###(((((()))((((((()))))((((((GAMELOOP))))))(((((()))(((((())))))))))###
 post '/gameloop' do
   move = params[:choice]
-  current_player = params[:current_player]
-
-    # puts "#{session[:player2]}is player 2 here????????????????????????????"
-    if  session[:board].val_spot(session[:board].board, move) == true
-        session[:board].place_marker("x", move)
+            # puts "#{session[:player2]}is player 2 here?_______________________???????????"
+    if  session[:board].val_spot(session[:board].board, move) == true    ### checking for valid spot
+        session[:board].place_marker("x", move)   #### placing the actual marker
     else 
         redirect '/gameplay?mssg=invalid spot choose again'
-    end   
-      
+    end     
        
-    if  session[:board].winr(session[:board].board) || session[:board].full?
+    if  session[:board].winr(session[:board].board) || session[:board].full?    ### checking for win or full board
       redirect '/gameover'    
-    else  
-      ai =  session[:player2].move(session[:board].board)  
+    else 
+              p  "current player is#{session[:current_player]}here....___________!!!!"
+              p  "ConSoLe is #{session[:console]}here..........???_______________!!!!"
+      if session[:player2].class == Playerhuman    ### checking to see if player2 is human
+              p  "player2 is #{session[:player2].class}HERE.....???_______________!!!!"
+              p  "player1 is #{session[:player1].class}here.....???_______________!!!!"
+        if session[:current_player] == session[:player1]      ### checking current_player
+          session[:console].player_sel    ### changing current_player
+              p  "current player is#{session[:current_player]}here....___________!!!!"
+          redirect '/gameplay'
+        else session[:current_player] == session[:player2]     ### checking current_player
+          session[:console].player_sel    ### changing current_player
+              p  "current player is#{session[:current_player]}here....___________!!!!"
+          redirect '/gameplay'  
+        end
+        if  session[:board].val_spot(session[:board].board, move) == true ###  player2 valid spot check
+            session[:board].place_marker("o", move)   ### player2 move 
+        end  
+      else  
+        ai =  session[:player2].move(session[:board].board)  ###   AI move
             session[:board].place_marker("o", ai)
-    end
+      end
+    end  
 
     
-    if  session[:board].winr(session[:board].board) || session[:board].full?  
+    if  session[:board].winr(session[:board].board) || session[:board].full?  ###final check for win or tie
       redirect '/gameover'
     else  
       redirect '/gameplay'
