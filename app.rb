@@ -56,18 +56,18 @@ post '/gameloop' do
     if  session[:board].winr(session[:board].board) || session[:board].full?    ### checking for win or full board
       redirect '/gameover'    
     else 
-              p  "current player is#{session[:current_player]}here....___________!!!!"
-              p  "ConSoLe is #{session[:console]}here..........???_______________!!!!"
-      if session[:player2].class == Playerhuman    ### checking to see if player2 is human
-              p  "player2 is #{session[:player2].class}HERE.....???_______________!!!!"
-              p  "player1 is #{session[:player1].class}here.....???_______________!!!!"
-        if session[:current_player] == session[:player1]      ### checking current_player
+              # p  "current player is#{session[:current_player]}here....___________!!!!"
+              # p  "ConSoLe is #{session[:console]}here..........???_______________!!!!"
+      if session[:player2].class == Playerhuman        ### checking to see if player2 is human
+              # p  "player2 is #{session[:player2].class}HERE.....???_______________!!!!"
+              # p  "player1 is #{session[:player1].class}here.....???_______________!!!!"
+        if session[:current_player] == session[:player1]           ### checking who is current_player
           session[:console].player_sel    ### changing current_player
-              p  "current player is#{session[:current_player]}here....___________!!!!"
+              # p  "current player is#{session[:current_player]}here....___________!!!!"
           redirect '/gameplay'
-        else session[:current_player] == session[:player2]     ### checking current_player
+        else session[:current_player] == session[:player2]         ### checking who is current_player
           session[:console].player_sel    ### changing current_player
-              p  "current player is#{session[:current_player]}here....___________!!!!"
+              # p  "current player is#{session[:current_player]}here....___________!!!!"
           redirect '/gameplay'  
         end
         if  session[:board].val_spot(session[:board].board, move) == true ###  player2 valid spot check
@@ -99,38 +99,18 @@ get '/gameover' do
 end
 ###(((((()))((((((()))))((((((SCOREBOARD))))))(((((()))(((((())))))))))###
 get '/scores' do
-  score = 
+  # score = 
   result = get_scores(score)
   list = params[:list]
   erb :scoreboard, locals:{list:list,result:result}
 end       
     ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
     ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-  #   session[:current_player].player_sel
-  # elsif  session[:board].val_spot(session[:board].board, move) == true
-  #     session[:board].place_marker("o", move)
-  #   redirect '/gameplay'
     ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-     # elsif 
-    #   hum = session[:player2].move(session[:board].board)  
-    #         session[:board].place_marker("o", hum)
+    
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-# if session[:current_player] == session[:player1]
-#   session[:current_player] = session[:player2]
-# else session[:current_player] == session[:player2]
-#   session[:current_player] = session[:player1]
-# end
+
 
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-# if current_player == session[:player1]
-#   session[:current_player] = session[:player2]
-# else current_player == session[:player2]
-#     session[:current_player] = session[:player1]
-# end
-# elsif  session[:board].val_spot(session[:board].board, move) == true 
-#    session[:board].place_marker("o", move)
 
-    # else 
-    #   redirect '/gameplay?mssg=invalid spot choose again'
-    # end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
