@@ -9,7 +9,8 @@ enable :sessions
 get '/' do
   session[:board] = Board.new
   session[:player1] = Playerhuman.new("x") 
-  session[:current_player] = session[:player1] 
+  session[:current_player] = session[:player1]
+        p "__________________#{session[:current_player].marker}" 
   session[:console] = Console.new
     # maketable()
   erb :open
@@ -35,6 +36,9 @@ post '/humangame' do
   session[:p1_name] = params[:p1_name]
   session[:p2_name] = params[:p2_name]
   session[:player2] = Playerhuman.new("o")
+  #       p  "_______PLAYER1 is #{session[:player1].marker}here.....???_______________!!!!"
+  #       p  "_______PLAYER2 is #{session[:player2].marker}HERE.....???_______________!!!!"
+  #       p  "________in post__CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
   redirect '/gameplay'
 end
 ###(((((()))((((((()))))((((((GAMEPLAY))))))(((((()))(((((())))))))))###
@@ -46,9 +50,9 @@ end
 ###(((((()))((((((()))))((((((GAMELOOP))))))(((((()))(((((())))))))))###
 post '/gameloop' do
   move = params[:choice]
-            # puts "#{session[:player2]}is player 2 here?_______________________???????????"
+
     if  session[:board].val_spot(session[:board].board, move) == true    ### checking for valid spot
-        session[:board].place_marker("x", move)   #### placing the actual marker
+        session[:board].place_marker(session[:current_player].marker, move)   #### placing the actual marker
     else 
         redirect '/gameplay?mssg=invalid spot choose again'
     end     
@@ -56,23 +60,25 @@ post '/gameloop' do
     if  session[:board].winr(session[:board].board) || session[:board].full?    ### checking for win or full board
       redirect '/gameover'    
     else 
-              # p  "current player is#{session[:current_player]}here....___________!!!!"
-              # p  "ConSoLe is #{session[:console]}here..........???_______________!!!!"
+              # p  "________before playerchange___CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
+              # p  "_______PLAYER2 is #{session[:player2].marker}HERE.....???_______________!!!!"
+              # p  "_______PLAYER1 is #{session[:player1].marker}here.....???_______________!!!!"
       if session[:player2].class == Playerhuman        ### checking to see if player2 is human
-              # p  "player2 is #{session[:player2].class}HERE.....???_______________!!!!"
-              # p  "player1 is #{session[:player1].class}here.....???_______________!!!!"
+              
         if session[:current_player] == session[:player1]           ### checking who is current_player
-          session[:console].player_sel    ### changing current_player
-              # p  "current player is#{session[:current_player]}here....___________!!!!"
+           session[:current_player] = session[:player2]    ### changing current_player
+              p  "___firstplayerchange____CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
           redirect '/gameplay'
         else session[:current_player] == session[:player2]         ### checking who is current_player
-          session[:console].player_sel    ### changing current_player
-              # p  "current player is#{session[:current_player]}here....___________!!!!"
+             session[:current_player] = session[:player1]   ### changing current_player
+              p  "_____secondplayerchange__CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
           redirect '/gameplay'  
+          # if  session[:board].val_spot(session[:board].board, move) == true ###  player2 valid spot check
+          #     session[:board].place_marker("o", move)   ### player2 move 
+          #   redirect '/gameplay'
+          # end  
         end
-        if  session[:board].val_spot(session[:board].board, move) == true ###  player2 valid spot check
-            session[:board].place_marker("o", move)   ### player2 move 
-        end  
+       
       else  
         ai =  session[:player2].move(session[:board].board)  ###   AI move
             session[:board].place_marker("o", ai)
