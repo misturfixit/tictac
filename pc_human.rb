@@ -1,8 +1,11 @@
 class Playerhuman
-  attr_accessor :marker
-  def initialize(marker)
+  attr_accessor :marker, :name
+ 	###(((((()))((((((()))))((((((INIT))))))(((((()))(((((())))))))))###
+  def initialize(marker, name)
     @marker = marker
+    @name = name
   end
+ 	###(((((()))((((((()))))((((((MOVE))))))(((((()))(((((())))))))))###
   def move(board)
     # p 
     # p "OK Human...Pick a spot...1-9"

@@ -1,11 +1,12 @@
 class Playerrand
   
-  attr_accessor :marker 
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-	def initialize(marker)
-		@marker = marker
+  attr_accessor :marker, :name 
+###(((((()))((((((()))))((((((INIT))))))(((((()))(((((())))))))))###
+	def initialize(marker, name)
+    @marker = marker
+    @name = name
 	end
-###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+###(((((()))((((((()))))((((((MOVE))))))(((((()))(((((())))))))))###
 	def move(board)	
 		ind = []
 		board.each_with_index do |val,index|

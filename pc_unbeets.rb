@@ -1,9 +1,10 @@
 class Playerunbeets
   
-  attr_accessor :marker 
+  attr_accessor :marker, :name 
 ###(((((()))((((((()))))((((((Init))))))(((((()))(((((())))))))))###
-	def initialize(marker)
-		@marker = marker
+	def initialize(marker, name)
+    @marker = marker
+    @name = name
 	end
 ###(((((()))((((((()))))((((((WinBlockFunc))))))(((((()))(((((())))))))))###  
   def win_move(board)

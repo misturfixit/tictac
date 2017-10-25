@@ -1,9 +1,10 @@
 class Playerseq
 
-	attr_accessor :marker 
+	attr_accessor :marker, :name 
 	###(((((()))((((((()))))((((((INIT))))))(((((()))(((((())))))))))###
-	def initialize(marker)
-		@marker = marker
+	def initialize(marker, name)
+    @marker = marker
+    @name = name
 	end
 	###(((((()))((((((()))))((((((MOVE))))))(((((()))(((((())))))))))###
 	def move(board)	
