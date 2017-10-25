@@ -136,16 +136,16 @@ class Playerunbeets
    #  puts "def move board is firing.................!!!!!!!!!!!!!!!"
     choice = 13
     if board.count("x") <= 1
-      # puts  "f___ move  is firing.................!!!!!!!!!!!!!!!"
+      puts  "FIRST___ move  is firing.................!!!!!!!!!!!!!!!"
          choice = f_move(board)
     elsif win_move(board) <= 9
-      # puts  "WIN__ move  is firing.................!!!!!!!!!!!!!!!"
+      puts  "WIN__ move  is firing.................!!!!!!!!!!!!!!!"
          choice = win_move(board)
     elsif get_edge(board) <= 9
-      # puts  "_EDGE_ move  is firing.................!!!!!!!!!!!!!!!"
+      puts  "_EDGE_ move  is firing.................!!!!!!!!!!!!!!!"
          choice = get_edge(board)
     elsif sec_move(board) <= 9
-      # puts  "SEC__ move board is firing.................!!!!!!!!!!!!!!!"
+      puts  "SEC__ move board is firing.................!!!!!!!!!!!!!!!"
          choice = sec_move(board)
     else free(board) <= 9
          choice = free(board) 
