@@ -17,7 +17,7 @@ end
 ###(((((()))((((((()))))((((1pGAME))))(((()))(((((())))))))))###
 post '/1p_game' do
 
-  session[:p1_name] = params[:p1_name]
+  # session[:p1_name] = params[:p1_name]
   difc = params[:difc]
     if     difc == "easy"
       session[:player2] = Playerseq.new("o")
@@ -98,12 +98,12 @@ get '/gameover' do
   end
 end
 ###(((((()))((((((()))))((((((SCOREBOARD))))))(((((()))(((((())))))))))###
-get '/scores' do
-  # score = 
-  result = get_scores(score)
-  list = params[:list]
-  erb :scoreboard, locals:{list:list,result:result}
-end       
+# get '/scores' do
+#   # score = 
+#   result = get_scores(score)
+#   list = params[:list]
+#   erb :scoreboard, locals:{list:list,result:result}
+# end       
     ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
     ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
     ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###

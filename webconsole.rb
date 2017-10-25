@@ -9,9 +9,9 @@ class Console
 ###(((((()))((((((()))))((((((INIT))))))(((((()))))))(((((())))))))))###
   def  initialize() 
     @board = Board.new 
-    @player1 = player1
-    @player2 = player2
-    @current_player = player1
+    @player1 #= player1
+    @player2 #= player2
+    @current_player #= player1
   
   end  
   def player_sel()
