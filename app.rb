@@ -8,8 +8,6 @@ enable :sessions
 ###(((((()))((((((()))))(((INIT'/')))(((((()))(((((())))))))))###
   get '/' do
     session[:board] = Board.new
-    # session[:player1] = Playerhuman.new("x",params[:p1_name]) 
-    # session[:current_player] = session[:player1]
           # p "__________________#{session[:current_player].marker}" 
     session[:console] = Console.new
       # maketable()
@@ -55,19 +53,18 @@ enable :sessions
   #   #       p  "________in post__CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
   #   redirect '/gameplay'
   # end
-###(((((()))((((((()))))(((GAMEPLAY))))(((((()))(((((())))))))))###
- ###(((((()))((((((()))))((((((gameboard))))))(((((()))(((((())))))))))###
+  ###(((((()))((((((()))))((((((GAMEBOARD))))))(((((()))(((((())))))))))###
   get '/gameboard' do
-  mssg = params[:mssg] || ""
-     erb :gameboard, locals:{board: session[:board].board, mssg: mssg}
+    mssg = params[:mssg] || ""
+    erb :gameboard, locals:{board: session[:board].board, mssg: mssg}
   end
-    ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  ###(((((()))((((((()))))(((GAMEPLAY))))(((((()))(((((())))))))))###
   get '/gameplay' do
     mssg = params[:mssg] || ""
       p "________CURRENTPLAYERCLASS________________#{session[:current_player].class}______________"  
     if session[:current_player].class == Playerhuman
       redirect '/gameboard?mssg='+mssg
-        # erb :gameboard, locals:{board: session[:board].board, mssg: mssg}
       else
         p "__________#{session[:current_player]}is here__________________________________"
         ai =  session[:current_player].move(session[:board].board)  ###   AI move
@@ -79,56 +76,61 @@ enable :sessions
         end  
       end 
       if  session[:board].winr(session[:board].board) || session[:board].full?  ###final check for win or tie
-      
         redirect '/gameover'
       else  
         redirect '/gameplay'
       end        
   end  
 ###(((((()))((((((()))))((((GAMELOOP))))(((((()))(((((())))))))))###
-post '/gameloop' do
-  move = params[:choice]
-  
-    if  session[:board].val_spot(session[:board].board, move) == true    ### checking for valid spot
-        session[:board].place_marker(session[:current_player].marker, move)   #### placing the actual marker
-    else 
-        redirect '/gameplay?mssg=invalid spot choose again'
-    end        
-    if  session[:board].winr(session[:board].board) || session[:board].full?    ### checking for win or tie
-      redirect '/gameover'    
-    else 
-              # p  "________before playerchange___CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
-              # p  "_______PLAYER2 is #{session[:player2].marker}HERE.....???_______________!!!!"
-              # p  "_______PLAYER1 is #{session[:player1].marker}here.....???_______________!!!!"
-      if session[:current_player].class == Playerhuman        ### checking to see if player2 is human   
-        if session[:current_player] == session[:player1]      ### checking the current_player
-           session[:current_player] = session[:player2]       ### changing current_player
-              # p  "_______firstplayerchange____CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
-          redirect '/gameplay'
-        else session[:current_player] == session[:player2]         ### checking who is current_player
-             session[:current_player] = session[:player1]   ### changing current_player
-              # p  "_____secondplayerchange__CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
-          redirect '/gameplay' 
-        end  
-      else
-        ai =  session[:current_player].move(session[:board].board)  ###   AI move
-        session[:board].place_marker(session[:current_player].marker, ai) 
-      end
-    end  
-    if  session[:board].winr(session[:board].board) || session[:board].full?  ###final check for win or tie
-      redirect '/gameover'
-    else  
-      redirect '/gameplay'
-    end  
-end  
+  post '/gameloop' do
+    move = params[:choice]
+    
+      if  session[:board].val_spot(session[:board].board, move) == true    ### checking for valid spot
+          session[:board].place_marker(session[:current_player].marker, move)   #### placing the actual marker
+      else 
+          redirect '/gameplay?mssg=invalid spot choose again'
+      end        
+      if  session[:board].winr(session[:board].board) || session[:board].full?    ### checking for win or tie
+        redirect '/gameover'    
+      else 
+                # p  "________before playerchange___CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
+                # p  "_______PLAYER2 is #{session[:player2].marker}HERE.....???_______________!!!!"
+                # p  "_______PLAYER1 is #{session[:player1].marker}here.....???_______________!!!!"
+        if session[:current_player].class == Playerhuman        ### checking to see if player2 is human   
+          if session[:current_player] == session[:player1]      ### checking the current_player
+            session[:current_player] = session[:player2]       ### changing current_player
+                # p  "_______firstplayerchange____CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
+            redirect '/gameplay'
+          else session[:current_player] == session[:player2]         ### checking who is current_player
+              session[:current_player] = session[:player1]   ### changing current_player
+                # p  "_____secondplayerchange__CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
+            redirect '/gameplay' 
+          end  
+        else
+          ai =  session[:current_player].move(session[:board].board)  ###   AI move
+          session[:board].place_marker(session[:current_player].marker, ai) 
+        end
+      end  
+      if  session[:board].winr(session[:board].board) || session[:board].full?  ###final check for win or tie
+        redirect '/gameover'
+      else  
+        redirect '/gameplay'
+      end  
+  end  
 ###(((((()))((((((()))))((((((GAMEOVER))))))(((((()))(((((())))))))))###
 get '/gameover' do
-  # add_entry(data)   
-  if  session[:board].winr(session[:board].board) == true
-    erb :winner, locals:{board:session[:board].board}
-  else  
-    erb :kittie, locals:{board: session[:board].board}
-  end
+  winner = ""
+      
+    if  session[:board].winr(session[:board].board) == true
+      winner = session[:current_player].name
+      erb :winner, locals:{board:session[:board].board}
+    else  
+      winner = "KatzGame"
+      erb :kittie, locals:{board: session[:board].board}
+    end 
+  # add_entry(session[:player1].name,
+  #           session[:player2].name,
+  #           winner)
 end
 ###(((((()))((((((()))))((((((SCOREBOARD))))))(((((()))(((((())))))))))###
 # get '/scores' do
