@@ -34,12 +34,12 @@ h4{
   font-size: 21;
   }
 h5{
-  font-size: 26px;
-  
+  font-size: 8vh; 
   } 
-input type submit{
-  size: 182;
-  }
+
+/* input type submit{
+  size: 82;
+  } */
 form{
   font-size: 18;
   }
@@ -55,3 +55,6 @@ body{
   text-shadow: 1px 1px #913a07c1;
   font-size: 21;
   }
+.classsquares{
+  font-size:5vh; 
+}

@@ -1,46 +1,47 @@
 <!doctype html>
 <html>
   <%=mssg%>
-
+ Current Player:
+ <%=playerturn%>
     <form method = "post" action = "gameloop">
       <h5>
         <%if board[0] == ""%>
-          <input type="submit" name="choice" value="1"><%=board[0]%> I
-        <%else%>  <input type="submit" name="choice" value="<%=board[0]%>"> I
+          <input type="submit" class="classsquares" name="choice" value="1"><%=board[0]%> I
+        <%else%>  <input type="submit" class="classsquares" name="choice" value="<%=board[0]%>"> I
         <%end%> 
         <%if board[1] == ""%>
-        <input type="submit" name="choice" value="2"><%=board[1]%> I
-        <%else%> <input type="submit" name="choice" value="<%=board[1]%>"> I
+        <input type="submit" class="classsquares" name="choice" value="2"><%=board[1]%> I
+        <%else%> <input type="submit" class="classsquares" name="choice" value="<%=board[1]%>"> I
         <%end%>
         <%if board[2] == ""%>
-          <input type="submit" name="choice" value="3"><%=board[2]%> I
-        <%else%> <input type="submit" name="choice" value="<%=board[2]%>"> I
+          <input type="submit" class="classsquares" name="choice" value="3"><%=board[2]%> I
+        <%else%> <input type="submit" class="classsquares" name="choice" value="<%=board[2]%>"> I
         <%end%><br> 
         ============<br>
         <%if board[3] == ""%>
-        <input type="submit" name="choice" value="4"><%=board[3]%> I
-        <%else%> <input type="submit" name="choice" value="<%=board[3]%>"> I
+        <input type="submit" class="classsquares" name="choice" value="4"><%=board[3]%> I
+        <%else%> <input type="submit" class="classsquares" name="choice" value="<%=board[3]%>"> I
         <%end%>
         <%if board[4] == ""%>
-          <input type="submit" name="choice" value="5"><%=board[4]%> I
-        <%else%> <input type="submit" name="choice" value="<%=board[4]%>"> I
+          <input type="submit" class="classsquares" name="choice" value="5"><%=board[4]%> I
+        <%else%> <input type="submit" class="classsquares" name="choice" value="<%=board[4]%>"> I
         <%end%> 
         <%if board[5] == ""%>
-        <input type="submit" name="choice" value="6"><%=board[5]%> I
-        <%else%> <input type="submit" name="choice" value="<%=board[5]%>"> I
+        <input type="submit" class="classsquares" name="choice" value="6"><%=board[5]%> I
+        <%else%> <input type="submit" class="classsquares" name="choice" value="<%=board[5]%>"> I
         <%end%><br>
         ============<br>
         <%if board[6] == ""%>
-          <input type="submit" name="choice" value="7"><%=board[6]%> I
-        <%else%> <input type="submit" name="choice" value="<%=board[6]%>"> I
+          <input type="submit" class="classsquares" name="choice" value="7"><%=board[6]%> I
+        <%else%> <input type="submit" class="classsquares" name="choice" value="<%=board[6]%>"> I
         <%end%> 
         <%if board[7] == ""%>
-        <input type="submit" name="choice" value="8"><%=board[7]%> I
-        <%else%> <input type="submit" name="choice" value="<%=board[7]%>"> I
+        <input type="submit" class="classsquares" name="choice" value="8"><%=board[7]%> I
+        <%else%> <input type="submit"class="classsquares" name="choice" value="<%=board[7]%>"> I
         <%end%>
         <%if board[8] == ""%>
-          <input type="submit" name="choice" value="9"><%=board[8]%> I
-        <%else%> <input type="submit" name="choice" value="<%=board[8]%>"> I
+          <input type="submit" class="classsquares" name="choice" value="9"><%=board[8]%> I
+        <%else%> <input type="submit" class="classsquares" name="choice" value="<%=board[8]%>"> I
         <%end%><br>
       </h5>
     </form>

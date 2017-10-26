@@ -44,19 +44,12 @@ enable :sessions
       p "_______PLAYER2#{session[:player2].class}is here________________"
     redirect '/gameplay'
   end
-###(((((()))((((((()))))((((2pGAME)))))(((((()))(((((())))))))))###
-  # post '/humangame' do
-  #   session[:player1] = Playerhuman.new("x",params[:p1_name])
-  #   session[:player2] = Playerhuman.new("o",params[:p2_name])
-  #   #       p  "_______PLAYER1 is #{session[:player1].marker}here.....???_______________!!!!"
-  #   #       p  "_______PLAYER2 is #{session[:player2].marker}HERE.....???_______________!!!!"
-  #   #       p  "________in post__CURRENTPLAYER is#{session[:current_player].marker}here....___________!!!!"
-  #   redirect '/gameplay'
-  # end
+
   ###(((((()))((((((()))))((((((GAMEBOARD))))))(((((()))(((((())))))))))###
   get '/gameboard' do
     mssg = params[:mssg] || ""
-    erb :gameboard, locals:{board: session[:board].board, mssg: mssg}
+
+    erb :gameboard, locals:{board: session[:board].board, mssg: mssg, playerturn:session[:current_player].name}
   end
   ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
   ###(((((()))((((((()))))(((GAMEPLAY))))(((((()))(((((())))))))))###
@@ -126,7 +119,7 @@ enable :sessions
             add_entry(session[:player1].name,
             session[:player2].name,
             winner,time)
-        erb :winner, locals:{board:session[:board].board}
+        erb :winner, locals:{board:session[:board].board,winner:winner}
       else  
         winner = "KatzGame"
             add_entry(session[:player1].name,
