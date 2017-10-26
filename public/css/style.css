@@ -4,26 +4,29 @@ h1{
   color: rgb(230, 122, 22); 
   opacity: 0.5;
   width: 33%;
-  height: 5%;
+  height: 15%;
   padding-top: 13px;
   padding-bottom: 17px;
   border:13px rgb(224, 93, 22);
   border-style: groove;	
   background-color: #5e483b;
-  float: left;
   font-size: 24;
   }
 h2{
+  /* text-align:center;  */
   margin-left:30%;
   color: rgb(133, 16, 16); 
   opacity: 0.5;
   width: 36%;
-  height: 12%;
+  height: 22%;
   padding: 15px;
   border: 13px rgb(80, 40, 8);
   border-style: inset;	
-  font-size: 17;
+  font-size: 27;
   }
+td{
+  padding-left: 5%;
+} 
 h3{
   font-size: 28;
   }

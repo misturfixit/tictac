@@ -26,7 +26,7 @@ require 'pg'
 ###((((((()))))))((((((()))))))(UpD_TABLE)((((((()))))))((((((()))))))###
 def add_entry(p1_name,
               p2_name,
-              winner)
+              winner,time)
   begin
     db_info = {
       host: ENV['RDS_HOST'],
@@ -36,7 +36,7 @@ def add_entry(p1_name,
       password: ENV['RDS_PASSWORD']
       }
     d_base = PG::Connection.new(db_info)
-    d_base.exec("INSERT INTO public.scoreboard(p1_name,p2_name,winner)VALUES('#{p1_name}','#{p2_name},'#{winner}')");            
+    d_base.exec("INSERT INTO public.scoreboard(p1_name,p2_name,winner,gametime)VALUES('#{p1_name}','#{p2_name}','#{winner}','#{time}')");            
   rescue PG::Error => e
     puts e.message
   ensure
@@ -44,7 +44,7 @@ def add_entry(p1_name,
   end  
  end
 ###((((((()))))))((((((()))))))(SCOREBOARD)((((((()))))))((((((()))))))###
-def get_scores(score)
+def get_scores()
   begin
     db_info = {
     host: ENV['RDS_HOST'],

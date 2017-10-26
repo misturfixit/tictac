@@ -118,33 +118,35 @@ enable :sessions
       end  
   end  
 ###(((((()))((((((()))))((((((GAMEOVER))))))(((((()))(((((())))))))))###
-get '/gameover' do
-  winner = ""
-      
-    if  session[:board].winr(session[:board].board) == true
-      winner = session[:current_player].name
-      erb :winner, locals:{board:session[:board].board}
-    else  
-      winner = "KatzGame"
-      erb :kittie, locals:{board: session[:board].board}
-    end 
-  # add_entry(session[:player1].name,
-  #           session[:player2].name,
-  #           winner)
-end
-###(((((()))((((((()))))((((((SCOREBOARD))))))(((((()))(((((())))))))))###
-# get '/scores' do
-#   # score = 
-#   result = get_scores(score)
-#   list = params[:list]
-#   erb :scoreboard, locals:{list:list,result:result}
-# end       
-   
-    ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+  get '/gameover' do
+    winner = ""
+    time = Time.now    
+      if  session[:board].winr(session[:board].board) == true
+        winner = session[:current_player].name
+            add_entry(session[:player1].name,
+            session[:player2].name,
+            winner,time)
+        erb :winner, locals:{board:session[:board].board}
+      else  
+        winner = "KatzGame"
+            add_entry(session[:player1].name,
+            session[:player2].name,
+            winner,time)
+        erb :kittie, locals:{board: session[:board].board}
+      end 
     
+  end
+###(((((()))((((((()))))((((((SCOREBOARD))))))(((((()))(((((())))))))))###
+  get '/scores' do
+    # score = 
+    result = get_scores()
+    # list = params[:list]
+    erb :scoreboard, locals:{result:result}
+  end       
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
+# post '/scores' do
 
-
+# end  
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
-
+###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
