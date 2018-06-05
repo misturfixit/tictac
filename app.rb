@@ -5,7 +5,7 @@ require_relative 'dbase.rb'
 enable :sessions
   load './local_env.rb' if File.exists?('./local_env.rb')
 
-###(((((()))((((((()))))(((INIT'/')))(((((()))(((((())))))))))###
+###(((((()))((((((()))))(((INIT'/')))(((((()))(((((())))))))))### Adding a comment to commit and test my git
   get '/' do
     session[:board] = Board.new
           # p "__________________#{session[:current_player].marker}" 
