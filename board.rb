@@ -1,12 +1,13 @@
 class Board
 
 	attr_accessor :board, :marker, :choice
-	def	initialize()
-		boarsize_h = 3
+  def	initialize()
+    
+    # @board = ["","","","","","","","",""]
+    boarsize_h = 3
 		@board = Array.new((boarsize_h * boarsize_h), "")
 		puts @Board
 	end
-	initialize()
 ###(((((()))((()))((()))(((Marker)))((())))((())))((())((())))###
   def place_marker(marker,choice)
     # p "#{choice}is this getting there??????????????"
@@ -47,7 +48,7 @@ class Board
 ###(((((()))((()))((()))(((WinPos)))((())))((())))((())((())))###
 	def winr(board)
     win = []
-    win_combos(board).each do |comb|                 ###add .board if console broken
+    win_combos(board).each do |comb|                               ###add .board if console broken
       if comb[0] == "x" && comb[1] == "x" && comb[2] == "x"
         win << true
       elsif comb[0] == "o" && comb[1] == "o" && comb[2] == "o"

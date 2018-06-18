@@ -60,7 +60,7 @@ class Console
               @player1 = Playerunbeets.new("x") 
               @player2 = Playerunbeets.new("o") 
             else
-              p       "Does Not Compute"         
+              p       "Does Not Compute!!"         
             end
         # else
         #   p       "Does Not Compute"  
@@ -115,7 +115,5 @@ class Console
     @current_player
 
   end
-  ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###  
-  ###(((((()))((((((()))))(((((())))))(((((()))(((((())))))))))###
 end
 
